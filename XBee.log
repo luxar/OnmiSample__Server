@@ -1,0 +1,667 @@
+[2015-02-03 22:35:18,049] [main] [ERROR] [com.rapplogic.xbee.examples.ApiAtExample] at command failed 
+com.rapplogic.xbee.api.XBeeException: Could not find port: /dev/tty.usbserial-A4004Rim
+	at com.rapplogic.xbee.RxTxSerialComm.openSerialPort(RxTxSerialComm.java:94)
+	at com.rapplogic.xbee.RxTxSerialComm.openSerialPort(RxTxSerialComm.java:61)
+	at com.rapplogic.xbee.api.XBee.open(XBee.java:140)
+	at com.rapplogic.xbee.examples.ApiAtExample.<init>(ApiAtExample.java:52)
+	at com.rapplogic.xbee.examples.ApiAtExample.main(ApiAtExample.java:73)
+[2015-02-03 22:36:18,731] [main] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] starting packet parser thread 
+[2015-02-03 22:36:18,731] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:36:18,733] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=AP,value=null 
+[2015-02-03 22:36:18,734] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=101,base16=0x65,base2=01100101 
+[2015-02-03 22:36:18,735] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x41 0x50 0x65 
+[2015-02-03 22:36:18,735] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:36:18,735] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x41,0x50,0x65 
+[2015-02-03 22:36:18,751] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 1 bytes available 
+[2015-02-03 22:36:18,751] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:36:18,751] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:36:18,751] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=6,base16=0x06,base2=00000110 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=6,base16=0x06,base2=00000110 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 6, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:36:18,767] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 6, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=65,base16=0x41,base2=01000001 at position 5, packet length is 6, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=65,base16=0x41,base2=01000001 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=80,base16=0x50,base2=01010000 at position 6, packet length is 6, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=80,base16=0x50,base2=01010000 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 6, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:36:18,767] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 1 remaining bytes 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=2,base16=0x02,base2=00000010 at position 8, packet length is 6, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=2,base16=0x02,base2=00000010 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=227,base16=0xe3,base2=11100011 at position 9, packet length is 6, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 227 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=227,base16=0xe3,base2=11100011 
+[2015-02-03 22:36:18,768] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=AP,status=OK,value=0x02,apiId=AT_RESPONSE (0x88),length=6,checksum=0xe3,error=false,frameId=0x01 
+[2015-02-03 22:36:18,768] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x06, 0x88, 0x01, 0x41, 0x50, 0x00, 0x02, 0xe3}; 
+[2015-02-03 22:36:18,769] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:36:18,769] [main] [INFO] [com.rapplogic.xbee.api.XBee] Radio is in correct AP mode (AP=2) 
+[2015-02-03 22:36:18,769] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=HV,value=null 
+[2015-02-03 22:36:18,769] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=88,base16=0x58,base2=01011000 
+[2015-02-03 22:36:18,769] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x48 0x56 0x58 
+[2015-02-03 22:36:18,769] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:36:18,770] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x48,0x56,0x58 
+[2015-02-03 22:36:18,807] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 11 bytes available 
+[2015-02-03 22:36:18,807] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:36:18,807] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=72,base16=0x48,base2=01001000 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=72,base16=0x48,base2=01001000 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=86,base16=0x56,base2=01010110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=86,base16=0x56,base2=01010110 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 2 remaining bytes 
+[2015-02-03 22:36:18,807] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=25,base16=0x19,base2=00011001 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=25,base16=0x19,base2=00011001 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=68,base16=0x44,base2=01000100 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 1 byte, val is base10=68,base16=0x44,base2=01000100 
+[2015-02-03 22:36:18,808] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 2 bytes available 
+[2015-02-03 22:36:18,808] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=123,base16=0x7b,base2=01111011 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 123 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=123,base16=0x7b,base2=01111011 
+[2015-02-03 22:36:18,808] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=HV,status=OK,value=0x19,0x44,apiId=AT_RESPONSE (0x88),length=7,checksum=0x7b,error=false,frameId=0x01 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x88, 0x01, 0x48, 0x56, 0x00, 0x19, 0x44, 0x7b}; 
+[2015-02-03 22:36:18,808] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:36:18,808] [main] [INFO] [com.rapplogic.xbee.api.XBee] XBee radio is Series 2 
+[2015-02-03 22:36:18,808] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=VR,value=null 
+[2015-02-03 22:36:18,808] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=78,base16=0x4e,base2=01001110 
+[2015-02-03 22:36:18,808] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x56 0x52 0x4e 
+[2015-02-03 22:36:18,808] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:36:18,808] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x56,0x52,0x4e 
+[2015-02-03 22:36:18,831] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 8 bytes available 
+[2015-02-03 22:36:18,831] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:36:18,831] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=86,base16=0x56,base2=01010110 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=86,base16=0x56,base2=01010110 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=82,base16=0x52,base2=01010010 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=82,base16=0x52,base2=01010010 
+[2015-02-03 22:36:18,831] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:36:18,832] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,832] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 2 remaining bytes 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read special byte that needs to be unescaped 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] found escape byte 
+[2015-02-03 22:36:18,847] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 3 bytes available 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] next byte is base10=49,base16=0x31,base2=00110001 
+[2015-02-03 22:36:18,847] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] unescaped (xor) byte is base10=17,base16=0x11,base2=00010001 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=17,base16=0x11,base2=00010001 at position 8, packet length is 7, #escapeBytes is 1, remaining bytes is 2 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=17,base16=0x11,base2=00010001 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=71,base16=0x47,base2=01000111 at position 9, packet length is 7, #escapeBytes is 1, remaining bytes is 1 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 1 byte, val is base10=71,base16=0x47,base2=01000111 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 1, remaining bytes is 0 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:36:18,847] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=VR,status=OK,value=0x11,0x47,apiId=AT_RESPONSE (0x88),length=7,checksum=0x76,error=false,frameId=0x01 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x88, 0x01, 0x56, 0x52, 0x00, 0x7d, 0x31, 0x47, 0x76}; 
+[2015-02-03 22:36:18,847] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:36:18,847] [main] [INFO] [com.rapplogic.xbee.api.XBee] Firmware version is 0x11,0x47 
+[2015-02-03 22:36:18,847] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=MY,value=null 
+[2015-02-03 22:36:18,847] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=80,base16=0x50,base2=01010000 
+[2015-02-03 22:36:18,848] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x4d 0x59 0x50 
+[2015-02-03 22:36:18,848] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:36:18,848] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x4d,0x59,0x50 
+[2015-02-03 22:36:18,867] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 1 bytes available 
+[2015-02-03 22:36:18,867] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:36:18,867] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:36:18,867] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:36:18,879] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=77,base16=0x4d,base2=01001101 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=77,base16=0x4d,base2=01001101 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=89,base16=0x59,base2=01011001 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=89,base16=0x59,base2=01011001 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 2 remaining bytes 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 1 byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=208,base16=0xd0,base2=11010000 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 208 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:36:18,879] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=208,base16=0xd0,base2=11010000 
+[2015-02-03 22:36:18,880] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=MY,status=OK,value=0x00,0x00,apiId=AT_RESPONSE (0x88),length=7,checksum=0xd0,error=false,frameId=0x01 
+[2015-02-03 22:36:18,880] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x88, 0x01, 0x4d, 0x59, 0x00, 0x00, 0x00, 0xd0}; 
+[2015-02-03 22:36:18,880] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:36:18,881] [main] [INFO] [com.rapplogic.xbee.examples.ApiAtExample] MY is command=MY,status=OK,value=0x00,0x00,apiId=AT_RESPONSE (0x88),length=7,checksum=0xd0,error=false,frameId=0x01 
+[2015-02-03 22:36:18,882] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Packet parser thread was interrupted.  This occurs when close() is called 
+[2015-02-03 22:36:19,490] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] InputStreamThread is exiting 
+[2015-02-03 22:39:02,837] [main] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] starting packet parser thread 
+[2015-02-03 22:39:02,837] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:02,839] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=AP,value=null 
+[2015-02-03 22:39:02,840] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=101,base16=0x65,base2=01100101 
+[2015-02-03 22:39:02,841] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x41 0x50 0x65 
+[2015-02-03 22:39:02,841] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:39:02,841] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x41,0x50,0x65 
+[2015-02-03 22:39:02,857] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 1 bytes available 
+[2015-02-03 22:39:02,857] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:02,857] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:02,857] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:02,873] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 8 bytes available 
+[2015-02-03 22:39:02,873] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=6,base16=0x06,base2=00000110 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=6,base16=0x06,base2=00000110 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 6, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:39:02,873] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 6, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=65,base16=0x41,base2=01000001 at position 5, packet length is 6, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=65,base16=0x41,base2=01000001 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=80,base16=0x50,base2=01010000 at position 6, packet length is 6, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:02,873] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=80,base16=0x50,base2=01010000 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 6, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 1 remaining bytes 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=2,base16=0x02,base2=00000010 at position 8, packet length is 6, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=2,base16=0x02,base2=00000010 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=227,base16=0xe3,base2=11100011 at position 9, packet length is 6, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 227 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=227,base16=0xe3,base2=11100011 
+[2015-02-03 22:39:02,874] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=AP,status=OK,value=0x02,apiId=AT_RESPONSE (0x88),length=6,checksum=0xe3,error=false,frameId=0x01 
+[2015-02-03 22:39:02,874] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x06, 0x88, 0x01, 0x41, 0x50, 0x00, 0x02, 0xe3}; 
+[2015-02-03 22:39:02,875] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:02,876] [main] [INFO] [com.rapplogic.xbee.api.XBee] Radio is in correct AP mode (AP=2) 
+[2015-02-03 22:39:02,876] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=HV,value=null 
+[2015-02-03 22:39:02,876] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=88,base16=0x58,base2=01011000 
+[2015-02-03 22:39:02,876] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x48 0x56 0x58 
+[2015-02-03 22:39:02,876] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:39:02,876] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x48,0x56,0x58 
+[2015-02-03 22:39:02,905] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 11 bytes available 
+[2015-02-03 22:39:02,905] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:39:02,905] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=72,base16=0x48,base2=01001000 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=72,base16=0x48,base2=01001000 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=86,base16=0x56,base2=01010110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=86,base16=0x56,base2=01010110 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:02,905] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 2 remaining bytes 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=25,base16=0x19,base2=00011001 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=25,base16=0x19,base2=00011001 
+[2015-02-03 22:39:02,906] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 2 bytes available 
+[2015-02-03 22:39:02,906] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=68,base16=0x44,base2=01000100 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 1 byte, val is base10=68,base16=0x44,base2=01000100 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=123,base16=0x7b,base2=01111011 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 123 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=123,base16=0x7b,base2=01111011 
+[2015-02-03 22:39:02,906] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=HV,status=OK,value=0x19,0x44,apiId=AT_RESPONSE (0x88),length=7,checksum=0x7b,error=false,frameId=0x01 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x88, 0x01, 0x48, 0x56, 0x00, 0x19, 0x44, 0x7b}; 
+[2015-02-03 22:39:02,906] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:02,906] [main] [INFO] [com.rapplogic.xbee.api.XBee] XBee radio is Series 2 
+[2015-02-03 22:39:02,906] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=VR,value=null 
+[2015-02-03 22:39:02,906] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=78,base16=0x4e,base2=01001110 
+[2015-02-03 22:39:02,906] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x56 0x52 0x4e 
+[2015-02-03 22:39:02,906] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:39:02,906] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x56,0x52,0x4e 
+[2015-02-03 22:39:02,921] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 1 bytes available 
+[2015-02-03 22:39:02,921] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:02,921] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:02,921] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:39:02,937] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=86,base16=0x56,base2=01010110 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=86,base16=0x56,base2=01010110 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=82,base16=0x52,base2=01010010 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=82,base16=0x52,base2=01010010 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 2 remaining bytes 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read special byte that needs to be unescaped 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] found escape byte 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] next byte is base10=49,base16=0x31,base2=00110001 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] unescaped (xor) byte is base10=17,base16=0x11,base2=00010001 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=17,base16=0x11,base2=00010001 at position 8, packet length is 7, #escapeBytes is 1, remaining bytes is 2 
+[2015-02-03 22:39:02,937] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=17,base16=0x11,base2=00010001 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=71,base16=0x47,base2=01000111 at position 9, packet length is 7, #escapeBytes is 1, remaining bytes is 1 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 1 byte, val is base10=71,base16=0x47,base2=01000111 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 1, remaining bytes is 0 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:39:02,938] [Thread-1] [WARN] [com.rapplogic.xbee.RxTxSerialComm] We were notified of new data but available() is returning 0 
+[2015-02-03 22:39:02,938] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:02,938] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=VR,status=OK,value=0x11,0x47,apiId=AT_RESPONSE (0x88),length=7,checksum=0x76,error=false,frameId=0x01 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x88, 0x01, 0x56, 0x52, 0x00, 0x7d, 0x31, 0x47, 0x76}; 
+[2015-02-03 22:39:02,938] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:02,938] [main] [INFO] [com.rapplogic.xbee.api.XBee] Firmware version is 0x11,0x47 
+[2015-02-03 22:39:02,939] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:02,939] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:02,939] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:02,939] [main] [INFO] [com.rapplogic.xbee.examples.zigbee.BroadcastSenderExample] request packet bytes (base 16) 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:02,941] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=ZNET_TX_REQUEST (0x10),frameId=1,destAddr64=0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,destAddr16=0xff,0xfe,broadcastRadius=0,option=BROADCAST,payload=0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78 
+[2015-02-03 22:39:02,941] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:02,941] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:02,941] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:02,941] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:03,001] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 11 bytes available 
+[2015-02-03 22:39:03,001] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=139,base16=0x8b,base2=10001011 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=139,base16=0x8b,base2=10001011 
+[2015-02-03 22:39:03,001] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: ZNET_TX_STATUS_RESPONSE (0x8b) 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=255,base16=0xff,base2=11111111 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 MSB byte, val is base10=255,base16=0xff,base2=11111111 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=254,base16=0xfe,base2=11111110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:03,001] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 LSB byte, val is base10=254,base16=0xfe,base2=11111110 
+[2015-02-03 22:39:03,002] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:03,002] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Tx Count byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:03,002] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 3 bytes available 
+[2015-02-03 22:39:03,002] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:03,002] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:03,002] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Delivery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:03,002] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:03,002] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Discovery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:03,003] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 1 bytes available 
+[2015-02-03 22:39:03,003] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:03,003] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:03,003] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:39:03,003] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:03,003] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:39:03,003] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: apiId=ZNET_TX_STATUS_RESPONSE (0x8b),length=7,checksum=0x76,error=false,frameId=0x01,remoteAddress16=0xff,0xfe,retryCount=0,deliveryStatus=SUCCESS,discoveryStatus=NO_DISCOVERY 
+[2015-02-03 22:39:03,003] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x8b, 0x01, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x76}; 
+[2015-02-03 22:39:03,003] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:17,942] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:17,942] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:17,942] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:17,942] [main] [INFO] [com.rapplogic.xbee.examples.zigbee.BroadcastSenderExample] request packet bytes (base 16) 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:17,942] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=ZNET_TX_REQUEST (0x10),frameId=1,destAddr64=0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,destAddr16=0xff,0xfe,broadcastRadius=0,option=BROADCAST,payload=0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78 
+[2015-02-03 22:39:17,942] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:17,942] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:17,942] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:17,942] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:17,993] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 5 bytes available 
+[2015-02-03 22:39:17,993] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=139,base16=0x8b,base2=10001011 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=139,base16=0x8b,base2=10001011 
+[2015-02-03 22:39:17,993] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: ZNET_TX_STATUS_RESPONSE (0x8b) 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:17,993] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=255,base16=0xff,base2=11111111 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 MSB byte, val is base10=255,base16=0xff,base2=11111111 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=254,base16=0xfe,base2=11111110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 LSB byte, val is base10=254,base16=0xfe,base2=11111110 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Tx Count byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Delivery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Discovery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:39:18,009] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: apiId=ZNET_TX_STATUS_RESPONSE (0x8b),length=7,checksum=0x76,error=false,frameId=0x01,remoteAddress16=0xff,0xfe,retryCount=0,deliveryStatus=SUCCESS,discoveryStatus=NO_DISCOVERY 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x8b, 0x01, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x76}; 
+[2015-02-03 22:39:18,009] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:24,467] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:24,467] [main] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] starting packet parser thread 
+[2015-02-03 22:39:24,469] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=AP,value=null 
+[2015-02-03 22:39:24,471] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=101,base16=0x65,base2=01100101 
+[2015-02-03 22:39:24,472] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x41 0x50 0x65 
+[2015-02-03 22:39:24,472] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:39:24,472] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x41,0x50,0x65 
+[2015-02-03 22:39:24,502] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 10 bytes available 
+[2015-02-03 22:39:24,502] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:24,502] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:24,503] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=6,base16=0x06,base2=00000110 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=6,base16=0x06,base2=00000110 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 6, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:39:24,511] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 6, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=65,base16=0x41,base2=01000001 at position 5, packet length is 6, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=65,base16=0x41,base2=01000001 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=80,base16=0x50,base2=01010000 at position 6, packet length is 6, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:24,511] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=80,base16=0x50,base2=01010000 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 6, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 1 remaining bytes 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=2,base16=0x02,base2=00000010 at position 8, packet length is 6, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=2,base16=0x02,base2=00000010 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=227,base16=0xe3,base2=11100011 at position 9, packet length is 6, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 227 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:24,512] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=227,base16=0xe3,base2=11100011 
+[2015-02-03 22:39:24,513] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=AP,status=OK,value=0x02,apiId=AT_RESPONSE (0x88),length=6,checksum=0xe3,error=false,frameId=0x01 
+[2015-02-03 22:39:24,513] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x06, 0x88, 0x01, 0x41, 0x50, 0x00, 0x02, 0xe3}; 
+[2015-02-03 22:39:24,514] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:24,514] [main] [INFO] [com.rapplogic.xbee.api.XBee] Radio is in correct AP mode (AP=2) 
+[2015-02-03 22:39:24,514] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=HV,value=null 
+[2015-02-03 22:39:24,514] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=88,base16=0x58,base2=01011000 
+[2015-02-03 22:39:24,514] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x48 0x56 0x58 
+[2015-02-03 22:39:24,514] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:39:24,514] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x48,0x56,0x58 
+[2015-02-03 22:39:24,534] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 5 bytes available 
+[2015-02-03 22:39:24,534] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:39:24,534] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:24,534] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=72,base16=0x48,base2=01001000 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=72,base16=0x48,base2=01001000 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=86,base16=0x56,base2=01010110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=86,base16=0x56,base2=01010110 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 2 remaining bytes 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=25,base16=0x19,base2=00011001 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=25,base16=0x19,base2=00011001 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=68,base16=0x44,base2=01000100 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 1 byte, val is base10=68,base16=0x44,base2=01000100 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=123,base16=0x7b,base2=01111011 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 123 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=123,base16=0x7b,base2=01111011 
+[2015-02-03 22:39:24,550] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=HV,status=OK,value=0x19,0x44,apiId=AT_RESPONSE (0x88),length=7,checksum=0x7b,error=false,frameId=0x01 
+[2015-02-03 22:39:24,550] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x88, 0x01, 0x48, 0x56, 0x00, 0x19, 0x44, 0x7b}; 
+[2015-02-03 22:39:24,551] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:24,551] [main] [INFO] [com.rapplogic.xbee.api.XBee] XBee radio is Series 2 
+[2015-02-03 22:39:24,551] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=AT_COMMAND (0x08),frameId=1,command=VR,value=null 
+[2015-02-03 22:39:24,551] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=78,base16=0x4e,base2=01001110 
+[2015-02-03 22:39:24,551] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x04 0x08 0x01 0x56 0x52 0x4e 
+[2015-02-03 22:39:24,551] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 8, post-escape packet size is 8 
+[2015-02-03 22:39:24,551] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x04,0x08,0x01,0x56,0x52,0x4e 
+[2015-02-03 22:39:24,582] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 12 bytes available 
+[2015-02-03 22:39:24,582] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=136,base16=0x88,base2=10001000 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=136,base16=0x88,base2=10001000 
+[2015-02-03 22:39:24,582] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: AT_RESPONSE (0x88) 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=86,base16=0x56,base2=01010110 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 1 byte, val is base10=86,base16=0x56,base2=01010110 
+[2015-02-03 22:39:24,582] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=82,base16=0x52,base2=01010010 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Char 2 byte, val is base10=82,base16=0x52,base2=01010010 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read AT Response Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] There are 2 remaining bytes 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read special byte that needs to be unescaped 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] found escape byte 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] next byte is base10=49,base16=0x31,base2=00110001 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] unescaped (xor) byte is base10=17,base16=0x11,base2=00010001 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=17,base16=0x11,base2=00010001 at position 8, packet length is 7, #escapeBytes is 1, remaining bytes is 2 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 0 byte, val is base10=17,base16=0x11,base2=00010001 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=71,base16=0x47,base2=01000111 at position 9, packet length is 7, #escapeBytes is 1, remaining bytes is 1 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Remaining bytes 1 byte, val is base10=71,base16=0x47,base2=01000111 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 1, remaining bytes is 0 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:24,583] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:39:24,584] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: command=VR,status=OK,value=0x11,0x47,apiId=AT_RESPONSE (0x88),length=7,checksum=0x76,error=false,frameId=0x01 
+[2015-02-03 22:39:24,584] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x88, 0x01, 0x56, 0x52, 0x00, 0x7d, 0x31, 0x47, 0x76}; 
+[2015-02-03 22:39:24,584] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:24,584] [main] [INFO] [com.rapplogic.xbee.api.XBee] Firmware version is 0x11,0x47 
+[2015-02-03 22:39:24,585] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:24,585] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:24,585] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:24,585] [main] [INFO] [com.rapplogic.xbee.examples.zigbee.BroadcastSenderExample] request packet bytes (base 16) 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:24,587] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=ZNET_TX_REQUEST (0x10),frameId=1,destAddr64=0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,destAddr16=0xff,0xfe,broadcastRadius=0,option=BROADCAST,payload=0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78 
+[2015-02-03 22:39:24,587] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:24,587] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:24,587] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:24,587] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:24,646] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 11 bytes available 
+[2015-02-03 22:39:24,646] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=139,base16=0x8b,base2=10001011 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=139,base16=0x8b,base2=10001011 
+[2015-02-03 22:39:24,646] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: ZNET_TX_STATUS_RESPONSE (0x8b) 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:24,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=255,base16=0xff,base2=11111111 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 MSB byte, val is base10=255,base16=0xff,base2=11111111 
+[2015-02-03 22:39:24,647] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 5 bytes available 
+[2015-02-03 22:39:24,647] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=254,base16=0xfe,base2=11111110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 LSB byte, val is base10=254,base16=0xfe,base2=11111110 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Tx Count byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:24,647] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Delivery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,648] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:24,648] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Discovery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:24,648] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:24,648] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:39:24,648] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:24,648] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:39:24,648] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: apiId=ZNET_TX_STATUS_RESPONSE (0x8b),length=7,checksum=0x76,error=false,frameId=0x01,remoteAddress16=0xff,0xfe,retryCount=0,deliveryStatus=SUCCESS,discoveryStatus=NO_DISCOVERY 
+[2015-02-03 22:39:24,649] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x8b, 0x01, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x76}; 
+[2015-02-03 22:39:24,649] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:39,588] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:39,588] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:39,588] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:39,588] [main] [INFO] [com.rapplogic.xbee.examples.zigbee.BroadcastSenderExample] request packet bytes (base 16) 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:39,588] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=ZNET_TX_REQUEST (0x10),frameId=1,destAddr64=0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,destAddr16=0xff,0xfe,broadcastRadius=0,option=BROADCAST,payload=0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78 
+[2015-02-03 22:39:39,588] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:39,588] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:39,589] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:39,589] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:39,637] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 3 bytes available 
+[2015-02-03 22:39:39,637] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:39,637] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:39,637] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:39,637] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:39,637] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:39,637] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=139,base16=0x8b,base2=10001011 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=139,base16=0x8b,base2=10001011 
+[2015-02-03 22:39:39,653] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: ZNET_TX_STATUS_RESPONSE (0x8b) 
+[2015-02-03 22:39:39,653] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 7 bytes available 
+[2015-02-03 22:39:39,653] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=255,base16=0xff,base2=11111111 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 MSB byte, val is base10=255,base16=0xff,base2=11111111 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=254,base16=0xfe,base2=11111110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 LSB byte, val is base10=254,base16=0xfe,base2=11111110 
+[2015-02-03 22:39:39,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Tx Count byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Delivery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Discovery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:39:39,654] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: apiId=ZNET_TX_STATUS_RESPONSE (0x8b),length=7,checksum=0x76,error=false,frameId=0x01,remoteAddress16=0xff,0xfe,retryCount=0,deliveryStatus=SUCCESS,discoveryStatus=NO_DISCOVERY 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x8b, 0x01, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x76}; 
+[2015-02-03 22:39:39,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:39:54,590] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:54,590] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:54,590] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:54,590] [main] [INFO] [com.rapplogic.xbee.examples.zigbee.BroadcastSenderExample] request packet bytes (base 16) 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:54,590] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=ZNET_TX_REQUEST (0x10),frameId=1,destAddr64=0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,destAddr16=0xff,0xfe,broadcastRadius=0,option=BROADCAST,payload=0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78 
+[2015-02-03 22:39:54,590] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:39:54,590] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:39:54,590] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:39:54,590] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:39:54,645] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 10 bytes available 
+[2015-02-03 22:39:54,645] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=139,base16=0x8b,base2=10001011 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=139,base16=0x8b,base2=10001011 
+[2015-02-03 22:39:54,645] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: ZNET_TX_STATUS_RESPONSE (0x8b) 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=255,base16=0xff,base2=11111111 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 MSB byte, val is base10=255,base16=0xff,base2=11111111 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=254,base16=0xfe,base2=11111110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 LSB byte, val is base10=254,base16=0xfe,base2=11111110 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Tx Count byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:39:54,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Delivery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:54,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:39:54,646] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Discovery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:39:54,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:39:54,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:39:54,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:39:54,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:39:54,661] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: apiId=ZNET_TX_STATUS_RESPONSE (0x8b),length=7,checksum=0x76,error=false,frameId=0x01,remoteAddress16=0xff,0xfe,retryCount=0,deliveryStatus=SUCCESS,discoveryStatus=NO_DISCOVERY 
+[2015-02-03 22:39:54,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x8b, 0x01, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x76}; 
+[2015-02-03 22:39:54,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:40:09,592] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:40:09,592] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:40:09,592] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:40:09,592] [main] [INFO] [com.rapplogic.xbee.examples.zigbee.BroadcastSenderExample] request packet bytes (base 16) 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:40:09,592] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=ZNET_TX_REQUEST (0x10),frameId=1,destAddr64=0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,destAddr16=0xff,0xfe,broadcastRadius=0,option=BROADCAST,payload=0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78 
+[2015-02-03 22:40:09,592] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:40:09,592] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:40:09,592] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:40:09,592] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:40:09,653] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 11 bytes available 
+[2015-02-03 22:40:09,653] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=139,base16=0x8b,base2=10001011 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=139,base16=0x8b,base2=10001011 
+[2015-02-03 22:40:09,653] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: ZNET_TX_STATUS_RESPONSE (0x8b) 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=255,base16=0xff,base2=11111111 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 MSB byte, val is base10=255,base16=0xff,base2=11111111 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=254,base16=0xfe,base2=11111110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 LSB byte, val is base10=254,base16=0xfe,base2=11111110 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Tx Count byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:40:09,653] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Delivery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Discovery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:40:09,654] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: apiId=ZNET_TX_STATUS_RESPONSE (0x8b),length=7,checksum=0x76,error=false,frameId=0x01,remoteAddress16=0xff,0xfe,retryCount=0,deliveryStatus=SUCCESS,discoveryStatus=NO_DISCOVERY 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x8b, 0x01, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x76}; 
+[2015-02-03 22:40:09,654] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
+[2015-02-03 22:40:24,594] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:40:24,594] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:40:24,594] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:40:24,594] [main] [INFO] [com.rapplogic.xbee.examples.zigbee.BroadcastSenderExample] request packet bytes (base 16) 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:40:24,594] [main] [INFO] [com.rapplogic.xbee.api.XBee] Sending request to XBee: apiId=ZNET_TX_REQUEST (0x10),frameId=1,destAddr64=0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,destAddr16=0xff,0xfe,broadcastRadius=0,option=BROADCAST,payload=0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78 
+[2015-02-03 22:40:24,594] [main] [DEBUG] [com.rapplogic.xbee.api.Checksum] computed checksum is base10=250,base16=0xfa,base2=11111010 
+[2015-02-03 22:40:24,594] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] Packet: 0x7e 0x00 0x21 0x10 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0xff 0xff 0xff 0xfe 0x00 0x08 0x74 0x68 0x65 0x0a 0x71 0x75 0x69 0x63 0x6b 0x0a 0x62 0x72 0x6f 0x77 0x6e 0x0a 0x66 0x6f 0x78 0xfa 
+[2015-02-03 22:40:24,594] [main] [DEBUG] [com.rapplogic.xbee.api.XBeePacket] pre-escape packet size is 37, post-escape packet size is 37 
+[2015-02-03 22:40:24,594] [main] [INFO] [com.rapplogic.xbee.api.XBee] sending packet to XBee 0x7e,0x00,0x21,0x10,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0xff,0xff,0xff,0xfe,0x00,0x08,0x74,0x68,0x65,0x0a,0x71,0x75,0x69,0x63,0x6b,0x0a,0x62,0x72,0x6f,0x77,0x6e,0x0a,0x66,0x6f,0x78,0xfa 
+[2015-02-03 22:40:24,644] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] serialEvent: 5 bytes available 
+[2015-02-03 22:40:24,644] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:40:24,644] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] About to read from input stream 
+[2015-02-03 22:40:24,644] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Read base10=126,base16=0x7e,base2=01111110 from input stream 
+[2015-02-03 22:40:24,644] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length MSB byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:24,644] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Length LSB byte, val is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:40:24,644] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] packet length is base10=7,base16=0x07,base2=00000111 
+[2015-02-03 22:40:24,644] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=139,base16=0x8b,base2=10001011 at position 3, packet length is 7, #escapeBytes is 0, remaining bytes is 7 
+[2015-02-03 22:40:24,644] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read API ID byte, val is base10=139,base16=0x8b,base2=10001011 
+[2015-02-03 22:40:24,644] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.PacketParser] Handling ApiId: ZNET_TX_STATUS_RESPONSE (0x8b) 
+[2015-02-03 22:40:24,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=1,base16=0x01,base2=00000001 at position 4, packet length is 7, #escapeBytes is 0, remaining bytes is 6 
+[2015-02-03 22:40:24,645] [Thread-1] [WARN] [com.rapplogic.xbee.RxTxSerialComm] We were notified of new data but available() is returning 0 
+[2015-02-03 22:40:24,645] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Frame Id byte, val is base10=1,base16=0x01,base2=00000001 
+[2015-02-03 22:40:24,645] [Thread-1] [DEBUG] [com.rapplogic.xbee.RxTxSerialComm] Ignoring serial port event type: 1 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=255,base16=0xff,base2=11111111 at position 5, packet length is 7, #escapeBytes is 0, remaining bytes is 5 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 MSB byte, val is base10=255,base16=0xff,base2=11111111 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=254,base16=0xfe,base2=11111110 at position 6, packet length is 7, #escapeBytes is 0, remaining bytes is 4 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Address 16 LSB byte, val is base10=254,base16=0xfe,base2=11111110 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 7, packet length is 7, #escapeBytes is 0, remaining bytes is 3 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Tx Count byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 8, packet length is 7, #escapeBytes is 0, remaining bytes is 2 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Delivery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=0,base16=0x00,base2=00000000 at position 9, packet length is 7, #escapeBytes is 0, remaining bytes is 1 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read ZNet Tx Status Discovery Status byte, val is base10=0,base16=0x00,base2=00000000 
+[2015-02-03 22:40:24,660] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read byte base10=118,base16=0x76,base2=01110110 at position 10, packet length is 7, #escapeBytes is 0, remaining bytes is 0 
+[2015-02-03 22:40:24,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Checksum byte is 118 
+[2015-02-03 22:40:24,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.Checksum] verify checksum is 255 
+[2015-02-03 22:40:24,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.PacketParser] Read Checksum byte, val is base10=118,base16=0x76,base2=01110110 
+[2015-02-03 22:40:24,661] [InputStreamThread] [INFO] [com.rapplogic.xbee.api.InputStreamThread] Received packet from XBee: apiId=ZNET_TX_STATUS_RESPONSE (0x8b),length=7,checksum=0x76,error=false,frameId=0x01,remoteAddress16=0xff,0xfe,retryCount=0,deliveryStatus=SUCCESS,discoveryStatus=NO_DISCOVERY 
+[2015-02-03 22:40:24,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] Received packet: int[] packet = {0x00, 0x07, 0x8b, 0x01, 0xff, 0xfe, 0x00, 0x00, 0x00, 0x76}; 
+[2015-02-03 22:40:24,661] [InputStreamThread] [DEBUG] [com.rapplogic.xbee.api.InputStreamThread] No data available.. waiting for new data event 
