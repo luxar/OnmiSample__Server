@@ -118,17 +118,17 @@ public class ZNetSenderExample {
 			// replace with your com port and baud rate. this is the com port of my coordinator
 			//xbee.open("COM5", 9600);
 			// my coordinator com/baud
-			xbee.open("/dev/tty.usbserial-A6005v5M", 9600);
+			xbee.open("COM3", 9600);
 			// my end device
 //			xbee.open("/dev/tty.usbserial-A6005uPi", 9600);
 			
 			// replace with end device's 64-bit address (SH + SL)
 //			XBeeAddress64 addr64 = new XBeeAddress64(0, 0x13, 0xa2, 0, 0x40, 0x0a, 0x3e, 0x02);
 			// my other remote
-			XBeeAddress64 addr64 = new XBeeAddress64(0, 0x13, 0xa2, 0, 0x40, 0x30, 0x3a, 0x23);
+			XBeeAddress64 addr64 = new XBeeAddress64(0, 0x13, 0xa2, 0, 0x40, 0x32, 0xe4, 0x23);
 			 
 			// create an array of arbitrary data to send
-			int[] payload = new int[] { 'X', 'B', 'e', 'e' };
+			int[] payload = new int[] { 'R', 0X01, 0, 0};
 			
 			// first request we just send 64-bit address.  we get 16-bit network address with status response
 			ZNetTxRequest request = new ZNetTxRequest(addr64, payload);
@@ -170,6 +170,9 @@ public class ZNetSenderExample {
 					log.warn("request timed out");
 				}
 	
+				
+				
+				
 				try {
 					// wait a bit then send another packet
 					Thread.sleep(10000);

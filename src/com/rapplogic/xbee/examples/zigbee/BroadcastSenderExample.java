@@ -45,7 +45,7 @@ public class BroadcastSenderExample {
 			
 			while (true) {
 				// put some arbitrary data in the payload
-				int[] payload = ByteUtils.stringToIntArray("the\nquick\nbrown\nfox");
+				int[] payload = ByteUtils.stringToIntArray("Q");
 				
 				ZNetTxRequest request = new ZNetTxRequest(XBeeAddress64.BROADCAST, payload);
 				// make it a broadcast packet
