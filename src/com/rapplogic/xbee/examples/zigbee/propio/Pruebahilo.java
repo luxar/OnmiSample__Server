@@ -95,6 +95,14 @@ public class Pruebahilo extends Thread {
 
 	public static void main(String[] args) {
 		PropertyConfigurator.configure("log4j.properties");
+		
+		
+		
+		
+		
+		
+		
+		
 		Pruebahilo hilo = new Pruebahilo();
 		hilo.start();
 	}
