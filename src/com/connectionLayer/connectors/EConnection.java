@@ -1,17 +1,17 @@
-package com.connectors;
+package com.connectionLayer.connectors;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.ResourceBundle;
 
-public class IConnection {
+public class EConnection {
 	private static Connection con = null;
 
 	public static Connection getConnection() {
 
 		try {
 			if (con == null) {
-				Runtime.getRuntime().addShutdownHook(new MiShDwnHookI());
+				Runtime.getRuntime().addShutdownHook(new MiShDwnHookE());
 				ResourceBundle rb = ResourceBundle.getBundle("ijdbc");
 				String driver = rb.getString("driver");
 				String url = rb.getString("url");
@@ -38,10 +38,10 @@ public class IConnection {
 	}
 }
 
-class MiShDwnHookI extends Thread {
+class MiShDwnHookE extends Thread {
 	public void run() {
 		try {
-			Connection con = IConnection.getConnection();
+			Connection con = EConnection.getConnection();
 			con.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();

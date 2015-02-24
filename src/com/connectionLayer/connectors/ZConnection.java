@@ -1,4 +1,4 @@
-package com.connectors;
+package com.connectionLayer.connectors;
 
 
 import java.util.ResourceBundle;

@@ -1,6 +1,6 @@
 package com.rapplogic.xbee.examples.zigbee.propio;
 
-import com.connectors.ZConnection;
+import com.connectionLayer.connectors.ZConnection;
 import com.rapplogic.xbee.api.XBee;
 
 public class prueba3 {
