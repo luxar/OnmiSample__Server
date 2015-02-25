@@ -58,6 +58,7 @@ public class ZConnection {
 		// SELECT posicion FROM perifericos WHERE dir1=0 and dir2=1 and dir3=1
 		// and dir4=1 and dir5=1 and dir6=1
 	}
+	
 	private static  Collection<PerifericoDTO> dispositvo(int numserie) {
 		Connection con = null;
 		PreparedStatement pstm = null;
@@ -77,7 +78,10 @@ public class ZConnection {
 				dto.setPosicion(rs.getInt("posicion"));
 				dto.setBooleano(rs.getBoolean("booleano"));
 				dto.setEscribible(rs.getBoolean("escribible"));
-				
+				dto.setPicMax(rs.getInt("picmax"));
+				dto.setPicMin(rs.getInt("picmin"));
+				dto.setRealMax(rs.getInt("realmax"));
+				dto.setRealMin(rs.getInt("realmin"));
 				ret.add(dto);
 			}
 			return ret;
@@ -110,17 +114,42 @@ public class ZConnection {
 		// we just assume it was sent.  that's just the way it is with broadcast.  
 		// no transmit status response is sent, so don't bother calling getResponse()
 	}
+	
 	private static void anhadirADB(Collection<PerifericoDTO> perifericoDTO,int dir[]){
 		Connection con = null;
+		Connection conE = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		try {
 			
-			con = IConnection.getConnection();
+			conE = EConnection.getConnection();
 			PerifericoDTO[] perifericos = (PerifericoDTO[]) perifericoDTO.toArray(new PerifericoDTO[0]);
 			String sql = "";
+			String nombre= "";
+			sql = "SELECT nombre FROM dispositivo WHERE numserie=?";
+			pstm = conE.prepareStatement(sql);
+			pstm.setInt(1,perifericos[0].getNumserie());
+			rs = pstm.executeQuery();
+			if (rs.next()) {
+				nombre=rs.getString("nombre");
+			
+			}
+			con = IConnection.getConnection();
+			sql = "INSERT INTO dispositivos (dir1, dir2 , dir3 , dir4 , dir5 , dir6 ,  numserie, activo, nombre  ) VALUES( ? , ? , ? , ? , ? , ? , ? , ?, ? )";
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, perifericos[0].getNumserie());
+			pstm.setBoolean(8, true);
+			pstm.setString(9, nombre);
+			pstm.executeUpdate();
+			
 		for(int i=0;i<perifericos.length;i++){
-		sql = "INSERT INTO perifericos (dir1, dir2 , dir3 , dir4 , dir5 , dir6 , posicion , numserie, booleano , escribible  ) VALUES(?,?, ?,?, ?, ?, ?, ?, ?, ? )";
+		sql = "INSERT INTO perifericos (dir1, dir2 , dir3 , dir4 , dir5 , dir6 , posicion , booleano , escribible , realmax, realmin, picmax , picmin ) VALUES(?,?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
 		pstm = con.prepareStatement(sql);
 		pstm.setInt(1, dir[0]);
 		pstm.setInt(2, dir[1]);
@@ -129,10 +158,15 @@ public class ZConnection {
 		pstm.setInt(5, dir[4]);
 		pstm.setInt(6, dir[5]);
 		pstm.setInt(7, perifericos[i].getPosicion());
-		pstm.setInt(8, perifericos[i].getNumserie());
-		pstm.setBoolean(9, perifericos[i].isBooleano());
-		pstm.setBoolean(10, perifericos[i].isEscribible());
+		pstm.setBoolean(8, perifericos[i].isBooleano());
+		pstm.setBoolean(9, perifericos[i].isEscribible());
+		pstm.setInt(10,perifericos[i].getRealMax());
+		pstm.setInt(11,perifericos[i].getRealMin());
+		pstm.setInt(12,perifericos[i].getPicMax());		
+		pstm.setInt(13,perifericos[i].getPicMin());
+
 		pstm.executeUpdate();
+		
 		}
 		} catch (Exception ex) {
 			ex.printStackTrace();
