@@ -19,7 +19,12 @@ import com.rapplogic.xbee.connectionLayer.funcCom.FuncEnvio;
 import com.rapplogic.xbee.connectionLayer.funcCom.HiloSonda;
 import com.rapplogic.xbee.util.ByteUtils;
 import com.rapplogic.xbee.util.DoubleByte;
-
+/**
+ * clase principal que comienza todas las funciones de mantenimiento de la infrastuctura xbee
+ * (envio de peticiones establecimiento de un hilo receptor etc)
+ * @author Lucas Alvarez Argüero
+ *
+ */
 public class Mantenimiento {
 	private XBee xbee = null;
 	private Connection conI = null;

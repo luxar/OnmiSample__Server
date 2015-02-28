@@ -14,7 +14,11 @@ import com.rapplogic.xbee.connectionLayer.DAO.PerifericoLocalDAO;
 import com.rapplogic.xbee.connectionLayer.DTO.PerifericoLocalDTO;
 import com.rapplogic.xbee.connectionLayer.connectors.IConnection;
 import com.rapplogic.xbee.util.ByteUtils;
-
+/**
+ * Hilo que envia concurrentemente peticiones de lectura de datos
+ * @author Lucas Alvarez Argüero
+ *
+ */
 public class HiloSonda extends Thread {
 	private final static Logger log = Logger.getLogger(HiloSonda.class);
 	XBee xbee = null;

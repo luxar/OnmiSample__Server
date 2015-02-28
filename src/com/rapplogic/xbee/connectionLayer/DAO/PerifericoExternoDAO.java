@@ -8,13 +8,21 @@ import java.util.Vector;
 
 import com.rapplogic.xbee.connectionLayer.DTO.PerifericoDTO;
 import com.rapplogic.xbee.connectionLayer.connectors.EConnection;
-
+/**
+ * Funciones que engloban la mayoria de operacionescon la base de datos externa
+ * @author Lucas Alvarez Argüero
+ *
+ */
 public class PerifericoExternoDAO {
 	
 	
 	
 	
-	
+	/**
+	 * Devuelve el dto de todos los perifericos del dispositivo(modelo de base datos externa)
+	 * @param numserie numero de serie del dispositivo
+	 * @return coleccion dto con todos los perifericos del dispositivo y todas sus opciones
+	 */
 	public Collection<PerifericoDTO> dispositvo(int numserie) {
 		Connection con = null;
 		PreparedStatement pstm = null;
