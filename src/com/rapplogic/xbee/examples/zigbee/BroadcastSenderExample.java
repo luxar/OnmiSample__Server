@@ -41,11 +41,11 @@ public class BroadcastSenderExample {
 		
 		try {
 			// replace with your com port and baud rate. this is the com port of my coordinator		
-			xbee.open("COM3", 9600);
+			xbee.open("/dev/ttyUSB0", 9600);
 			
 			while (true) {
 				// put some arbitrary data in the payload
-				int[] payload = ByteUtils.stringToIntArray("Q");
+				int[] payload = ByteUtils.stringToIntArray("the\nquick\nbrown\nfox");
 				
 				ZNetTxRequest request = new ZNetTxRequest(XBeeAddress64.BROADCAST, payload);
 				// make it a broadcast packet

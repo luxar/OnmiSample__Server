@@ -39,7 +39,7 @@ public class BroadcastReceiverExample {
 		
 		try {
 			// replace with your com port and baud rate. this is the com port of my coordinator
-			xbee.open("COM3", 9600);
+			xbee.open("/dev/tty.usbserial-A6005uPi", 9600);
 			
 			while (true) {				
 				XBeeResponse response = xbee.getResponse();

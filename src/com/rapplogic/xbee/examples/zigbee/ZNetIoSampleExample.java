@@ -26,6 +26,8 @@ import com.rapplogic.xbee.api.ApiId;
 import com.rapplogic.xbee.api.PacketListener;
 import com.rapplogic.xbee.api.XBee;
 import com.rapplogic.xbee.api.XBeeResponse;
+import com.rapplogic.xbee.api.wpan.IoSample;
+import com.rapplogic.xbee.api.wpan.RxResponseIoSample;
 import com.rapplogic.xbee.api.zigbee.ZNetRxIoSampleResponse;
 
 /**

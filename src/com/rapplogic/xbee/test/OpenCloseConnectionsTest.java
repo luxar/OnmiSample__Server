@@ -27,7 +27,7 @@ public class OpenCloseConnectionsTest {
 	public OpenCloseConnectionsTest() throws XBeeException, InterruptedException {
 		
 		// series 1
-		String device = "COM3";
+		String device = "/dev/tty.usbserial-A4004Rim";
 		// series 2
 //		String device = "/dev/tty.usbserial-A6005v5M";
 		
