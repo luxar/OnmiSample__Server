@@ -9,6 +9,7 @@ public class PerifericoDTO {
 	private int picMin;
 	private boolean booleano;
 	private boolean escribible;
+	private String nombreperi;
 	public int getNumserie() {
 		return numserie;
 	}
@@ -56,6 +57,12 @@ public class PerifericoDTO {
 	}
 	public void setEscribible(boolean escribible) {
 		this.escribible = escribible;
+	}
+	public String getNombreperi() {
+		return nombreperi;
+	}
+	public void setNombreperi(String nombreperi) {
+		this.nombreperi = nombreperi;
 	}
 	
 }

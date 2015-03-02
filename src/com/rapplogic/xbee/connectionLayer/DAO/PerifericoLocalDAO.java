@@ -108,7 +108,7 @@ public class PerifericoLocalDAO {
 			pstm.executeUpdate();
 
 			for (int i = 0; i < perifericos.length; i++) {
-				sql = "INSERT INTO perifericos (dir1, dir2 , dir3 , dir4 , dir5 , dir6 , posicion , booleano , escribible , realmax, realmin, picmax , picmin, dir7 , dir8 ) VALUES(?,?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+				sql = "INSERT INTO perifericos (dir1, dir2 , dir3 , dir4 , dir5 , dir6 , posicion , booleano , escribible , realmax, realmin, picmax , picmin, dir7 , dir8, nombreperi ) VALUES(?,?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ? )";
 				pstm = con.prepareStatement(sql);
 				pstm.setInt(1, dir[0]);
 				pstm.setInt(2, dir[1]);
@@ -125,6 +125,7 @@ public class PerifericoLocalDAO {
 				pstm.setInt(13, perifericos[i].getPicMin());
 				pstm.setInt(14, dir[6]);
 				pstm.setInt(15, dir[7]);
+				pstm.setString(16,perifericos[i].getNombreperi() );
 				pstm.executeUpdate();
 
 			}
@@ -192,9 +193,7 @@ public class PerifericoLocalDAO {
 	 *            posicion del periferico en el dispositivo
 	 */
 	public void recogerDatos(int valor, int dir[], int pos) {
-		// UPDATE perifericos SET valreal=? WHERE dir1=? AND dir2=? AND dir3=?
-		// AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=? AND
-		// posicion=?;
+		
 		// TODO control de datos
 		Connection con = null;
 		PreparedStatement pstm = null;

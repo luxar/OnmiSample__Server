@@ -46,6 +46,7 @@ public class PerifericoExternoDAO {
 				dto.setPicMin(rs.getInt("picmin"));
 				dto.setRealMax(rs.getInt("realmax"));
 				dto.setRealMin(rs.getInt("realmin"));
+				dto.setNombreperi(rs.getString("nombreperi"));
 				ret.add(dto);
 			}
 			return ret;
