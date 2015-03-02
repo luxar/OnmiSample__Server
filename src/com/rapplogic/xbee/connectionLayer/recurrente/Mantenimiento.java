@@ -27,8 +27,6 @@ import com.rapplogic.xbee.util.DoubleByte;
  */
 public class Mantenimiento {
 	private XBee xbee = null;
-	private Connection conI = null;
-	private Connection conE = null;
 	private final static Logger log = Logger.getLogger(Mantenimiento.class);
 
 	public Mantenimiento() {
@@ -75,6 +73,7 @@ public class Mantenimiento {
 							boolean existe = perifericoLocalDAO.registrado(direcion);
 							if (existe) {
 								log.info("Existe");
+								perifericoLocalDAO.ponerActivo(direcion);
 							} else {
 								log.info("NO Existe");
 								PerifericoExternoDAO perifericoExternoDAO = new PerifericoExternoDAO();
@@ -109,8 +108,8 @@ public class Mantenimiento {
 				} else if (response.getApiId() == ApiId.ZNET_IO_NODE_IDENTIFIER_RESPONSE) {
 
 					log.info("Se ha conectado un nuevo dispositivo a la red");
-					FuncEnvio funcEnvio = new FuncEnvio();
-					funcEnvio.solicitarNumseries(xbee);
+					
+					FuncEnvio.solicitarNumseries(xbee);
 
 				} else {
 
@@ -122,6 +121,8 @@ public class Mantenimiento {
 		// fin receptor
 		HiloSonda hiloSonda = new HiloSonda(xbee);
 		hiloSonda.start();
+		
+		FuncEnvio.solicitarNumseries(xbee);
 	}
 
 }

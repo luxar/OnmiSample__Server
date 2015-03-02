@@ -3,6 +3,7 @@ package com.rapplogic.xbee.connectionLayer.DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Vector;
 
@@ -151,7 +152,7 @@ public class PerifericoLocalDAO {
 		try {
 			con = IConnection.getConnection();
 			String sql = "";
-			sql += "SELECT * FROM perifericos WHERE posicion=?";
+			sql += "SELECT * FROM  perifericos  t1 INNER JOIN dispositivos t2 ON (t1.dir8=t2.dir8 and t1.dir7=t2.dir7 and t1.dir6=t2.dir6 and t1.dir5=t2.dir5  and t1.dir4=t2.dir4  and t1.dir3=t2.dir3  and t1.dir2=t2.dir2  and t1.dir1=t2.dir1)   WHERE t2.activo=1 and t1.posicion=?";
 			pstm = con.prepareStatement(sql);
 			pstm.setInt(1, puerto);
 			rs = pstm.executeQuery();
@@ -449,6 +450,69 @@ public class PerifericoLocalDAO {
 
 				}
 		
+				
+	}
+	
+	/**
+	 * Establece como inactivo el dispositivo
+	 * @param dir direccion del dispositivo
+	 */
+	public void ponerInactivo(int dir[]){
+		
+		Connection con = null;
+		PreparedStatement pstm = null;
+		con = IConnection.getConnection();
+		String sql = "";
+		sql += "UPDATE dispositivos SET activo=0 WHERE   dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+		try {
+			pstm = con.prepareStatement(sql);
+		
+		pstm.setInt(1, dir[0]);
+		pstm.setInt(2, dir[1]);
+		pstm.setInt(3, dir[2]);
+		pstm.setInt(4, dir[3]);
+		pstm.setInt(5, dir[4]);
+		pstm.setInt(6, dir[5]);
+		pstm.setInt(7, dir[6]);
+		pstm.setInt(8, dir[7]);
+		pstm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	/**
+	 * Establece como activo el dispositivo
+	 * @param dir direccion del dispositivo
+	 */
+	public void ponerActivo(int dir[]){
+		
+		Connection con = null;
+		PreparedStatement pstm = null;
+		String sql = "";
+		sql += "UPDATE dispositivos SET activo=1 WHERE   dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+		con = IConnection.getConnection();
+		try {
+			pstm = con.prepareStatement(sql);
+		
+		pstm.setInt(1, dir[0]);
+		pstm.setInt(2, dir[1]);
+		pstm.setInt(3, dir[2]);
+		pstm.setInt(4, dir[3]);
+		pstm.setInt(5, dir[4]);
+		pstm.setInt(6, dir[5]);
+		pstm.setInt(7, dir[6]);
+		pstm.setInt(8, dir[7]);
+		pstm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 		
 	}
 }

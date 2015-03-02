@@ -75,6 +75,8 @@ public class HiloSonda extends Thread {
 							// ADDRESS_NOT_FOUND
 							log.error("packet failed due to error: "
 									+ response.getDeliveryStatus());
+							perifericoLocalDAO.ponerInactivo(perifericoLocalDTO[i].getDir());
+							
 						}
 
 						
