@@ -93,25 +93,23 @@
 
 
 				<%
-						DispositivoLocalDTO[] dispositivoLocalDTO =
-						(DispositivoLocalDTO[]) facade
-						.todosDispositivosLocales().toArray( new
-						DispositivoLocalDTO[0]); for (int i = 0; i <
-						dispositivoLocalDTO.length; i++) {
-						PerifericoLocalDTO[] perifericoLocalDTO =
-						(PerifericoLocalDTO[]) facade
-						.perifericosPorDirecion(dispositivoLocalDTO[i].getDir())
-						.toArray(new PerifericoLocalDTO[0]);
-					%>
+					DispositivoLocalDTO[] dispositivoLocalDTO = (DispositivoLocalDTO[]) facade
+							.todosDispositivosLocales().toArray(
+									new DispositivoLocalDTO[0]);
+					for (int i = 0; i < dispositivoLocalDTO.length; i++) {
+						PerifericoLocalDTO[] perifericoLocalDTO = (PerifericoLocalDTO[]) facade
+								.perifericosPorDirecion(dispositivoLocalDTO[i].getDir())
+								.toArray(new PerifericoLocalDTO[0]);
+				%>
 				<div class="col-sm-4 col-lg-4 col-md-4">
-					
-						<%
+
+					<%
 						boolean activo = dispositivoLocalDTO[i].isActivo();
 							if (activo) {
 					%>
 
 
-					<div class="panel panel-success">
+					<div class="panel panel-info">
 						<%
 							} else {
 						%>
@@ -121,51 +119,112 @@
 							%>
 
 							<div class="panel-heading">
-								<%=
-									dispositivoLocalDTO[i].getNombre()
-								%>
+								<%=dispositivoLocalDTO[i].getNombre()%>
 							</div>
 							<div class="panel-body">
-								<%
-									for (int n = 0; n <
-									perifericoLocalDTO.length; n++) {
-								%>
-								<div>perifericoLocalDTO</div>
 
 
-								<%}%>
+								<form role="form" METHOD=POST action="logica">
+										<%
+										int dir[]= dispositivoLocalDTO[i].getDir();
+										%>
+										<input type="hidden" name="accion" value="guardar">
+										<input type="hidden" name="dir1" value="<%=dir[0]%>">
+										<input type="hidden" name="dir2" value="<%=dir[1]%>">
+										<input type="hidden" name="dir3" value="<%=dir[2]%>">
+										<input type="hidden" name="dir4" value="<%=dir[3]%>">
+										<input type="hidden" name="dir5" value="<%=dir[4]%>">
+										<input type="hidden" name="dir6" value="<%=dir[5]%>">
+										<input type="hidden" name="dir7" value="<%=dir[6]%>">
+										<input type="hidden" name="dir8" value="<%=dir[7]%>">
+									<%
+										for (int n = 0; n < perifericoLocalDTO.length; n++) {
+											boolean boleano = perifericoLocalDTO[n].isBooleano();
+											String disable="";
+											if(perifericoLocalDTO[n].isEscribible()&&activo){
+												disable="";
+											}else{
+												disable="disabled";
+											}
+									%>
+									<%if (!boleano){ %>
+									<div class="form-group">
+										<label for="periferico"><%=perifericoLocalDTO[n].getNombreperi()%></label>
+										<input id="pos<%=perifericoLocalDTO[n].getPosicion()%>" name="pos<%=perifericoLocalDTO[n].getPosicion()%>"
+											class="form-control"
+											value="<%=perifericoLocalDTO[n].getValReal()%>" <%=disable%>>
+									</div>
+									<%}else{ %>
+									<div class="form-group">
+									<label for="periferico"><%=perifericoLocalDTO[n].getNombreperi()%></label>
+									<select  class="form-control" name="pos<%=perifericoLocalDTO[n].getPosicion()%>" id="pos<%=perifericoLocalDTO[n].getPosicion()%>" <%=disable%>>
+									 <%if (perifericoLocalDTO[n].isValbool()){ %>
+									
+										<option >ON</option>
+										<option>OFF</option>
+									
+									<%}else{ %>
+									<option >OFF</option>
+									<option>ON</option>
+									
+									<%} %>
+									
+									</select>
+
+									</div>
+									<%} %>
+									<%
+										}
+									String disable="";
+									if(activo){
+										disable="";
+									}else{
+										disable="disabled";
+									}
+									%>
+
+									<button type="submit" class="btn btn-default" <%=disable%>>Guardar</button>
+
+								</form>
+
+
+
+
+
 							</div>
-						
+
+						</div>
 					</div>
+					<%
+						}
+					%>
+
+
 				</div>
-				<%}%>
+
+
 
 
 			</div>
 
 
-
-
 		</div>
 
 
-	</div>
 
 
+		<footer>
+			<hr>
+			<p>&copy; Company 2014</p>
+		</footer>
 
+		<!-- Librería jQuery requerida por los plugins de JavaScript -->
+		<script src="http://code.jquery.com/jquery.js"></script>
 
-	<footer>
-		<hr>
-		<p>&copy; Company 2014</p>
-	</footer>
-
-	<!-- Librería jQuery requerida por los plugins de JavaScript -->
-	<script src="http://code.jquery.com/jquery.js"></script>
-
-	<!-- Todos los plugins JavaScript de Bootstrap (también puedes
+		<!-- Todos los plugins JavaScript de Bootstrap (también puedes
          incluir archivos JavaScript individuales de los únicos
          plugins que utilices) -->
-	<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
 
