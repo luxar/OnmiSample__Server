@@ -8,8 +8,7 @@ import java.util.Collection;
 import java.util.Vector;
 
 import com.rapplogic.xbee.api.XBee;
-import com.rapplogic.xbee.connectionLayer.DTO.PerifericoDTO;
-import com.rapplogic.xbee.connectionLayer.DTO.PerifericoLocalDTO;
+import com.rapplogic.xbee.connectionLayer.DTO.*;
 import com.rapplogic.xbee.connectionLayer.connectors.EConnection;
 import com.rapplogic.xbee.connectionLayer.connectors.IConnection;
 import com.rapplogic.xbee.connectionLayer.connectors.XConnection;
@@ -126,7 +125,7 @@ public class PerifericoLocalDAO {
 				pstm.setInt(13, perifericos[i].getPicMin());
 				pstm.setInt(14, dir[6]);
 				pstm.setInt(15, dir[7]);
-				pstm.setString(16,perifericos[i].getNombreperi() );
+				pstm.setString(16, perifericos[i].getNombreperi());
 				pstm.executeUpdate();
 
 			}
@@ -194,7 +193,7 @@ public class PerifericoLocalDAO {
 	 *            posicion del periferico en el dispositivo
 	 */
 	public void recogerDatos(int valor, int dir[], int pos) {
-		
+
 		// TODO control de datos
 		Connection con = null;
 		PreparedStatement pstm = null;
@@ -294,12 +293,16 @@ public class PerifericoLocalDAO {
 	 * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
 	 * base de datos local
 	 * 
-	 * @param pos posicion del periferico
-	 * @param dir array con la direccion del periferco
-	 * @param valor valor numerico
+	 * @param pos
+	 *            posicion del periferico
+	 * @param dir
+	 *            array con la direccion del periferco
+	 * @param valor
+	 *            valor numerico
 	 */
 	public void enviarValor(int pos, int dir[], int valor) {
-		//TODO añadir control para no meter un bool en un int y si es escribible
+		// TODO añadir control para no meter un bool en un int y si es
+		// escribible
 		Connection con = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -336,13 +339,13 @@ public class PerifericoLocalDAO {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-		
+
 		try {
 
 			String sql = "";
 			sql += "UPDATE perifericos SET valreal=? WHERE  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=? AND posicion=?";
 			pstm = con.prepareStatement(sql);
-			
+
 			pstm.setInt(1, valor);
 			pstm.setInt(2, dir[0]);
 			pstm.setInt(3, dir[1]);
@@ -359,106 +362,110 @@ public class PerifericoLocalDAO {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-		int valPic = Escalado.esc(realMax, realMin,picMax, picMin, 
-				valor);
+		int valPic = Escalado.esc(realMax, realMin, picMax, picMin, valor);
 		XBee xbee = XConnection.getConnection();
 		FuncEnvio.enviarEscritura(xbee, valPic, dir, pos);
-		
+
 	}
+
 	/**
 	 * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
 	 * base de datos local
 	 * 
-	 * @param posicion posicion del periferico
-	 * @param dir array con la direccion del periferco
-	 * @param valor valor Booleano
+	 * @param posicion
+	 *            posicion del periferico
+	 * @param dir
+	 *            array con la direccion del periferco
+	 * @param valor
+	 *            valor Booleano
 	 */
 	public void enviarValor(int pos, int dir[], boolean valor) {
-		//TODO añadir control para no meter un bool en un int
-		//TODO añadir control para no meter un bool en un int y si es escribible
-				Connection con = null;
-				PreparedStatement pstm = null;
-				ResultSet rs = null;
-				int realMax = 0;
-				int realMin = 0;
-				int picMax = 0;
-				int picMin = 0;
-				boolean booleano = false;
-				boolean escribible = false;
-				try {
-					con = IConnection.getConnection();
-					String sql = "";
-					sql += "SELECT * FROM perifericos WHERE posicion=? AND  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
-					pstm = con.prepareStatement(sql);
-					pstm.setInt(1, pos);
-					pstm.setInt(2, dir[0]);
-					pstm.setInt(3, dir[1]);
-					pstm.setInt(4, dir[2]);
-					pstm.setInt(5, dir[3]);
-					pstm.setInt(6, dir[4]);
-					pstm.setInt(7, dir[5]);
-					pstm.setInt(8, dir[6]);
-					pstm.setInt(9, dir[7]);
-					rs = pstm.executeQuery();
-					if (rs.next()) {
-						realMax = rs.getInt("realmax");
-						realMin = rs.getInt("realmin");
-						picMax = rs.getInt("picmax");
-						picMin = rs.getInt("picmin");
-						booleano = rs.getBoolean("booleano");
-						escribible = rs.getBoolean("escribible");
-					}
-				} catch (Exception ex) {
-					ex.printStackTrace();
-					throw new RuntimeException(ex);
-				}
-				try {
-					String sql = "";
-					if (valor == false) {
+		// TODO añadir control para no meter un bool en un int
+		// TODO añadir control para no meter un bool en un int y si es
+		// escribible
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int realMax = 0;
+		int realMin = 0;
+		int picMax = 0;
+		int picMin = 0;
+		boolean booleano = false;
+		boolean escribible = false;
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT * FROM perifericos WHERE posicion=? AND  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, pos);
+			pstm.setInt(2, dir[0]);
+			pstm.setInt(3, dir[1]);
+			pstm.setInt(4, dir[2]);
+			pstm.setInt(5, dir[3]);
+			pstm.setInt(6, dir[4]);
+			pstm.setInt(7, dir[5]);
+			pstm.setInt(8, dir[6]);
+			pstm.setInt(9, dir[7]);
+			rs = pstm.executeQuery();
+			if (rs.next()) {
+				realMax = rs.getInt("realmax");
+				realMin = rs.getInt("realmin");
+				picMax = rs.getInt("picmax");
+				picMin = rs.getInt("picmin");
+				booleano = rs.getBoolean("booleano");
+				escribible = rs.getBoolean("escribible");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		try {
+			String sql = "";
+			if (valor == false) {
 
-						sql += "UPDATE perifericos SET valbool=0 WHERE  posicion=? AND dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+				sql += "UPDATE perifericos SET valbool=0 WHERE  posicion=? AND dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
 
-					} else {
+			} else {
 
-						sql += "UPDATE perifericos SET valbool=1 WHERE  posicion=? AND dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=? ";
+				sql += "UPDATE perifericos SET valbool=1 WHERE  posicion=? AND dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=? ";
 
-					}
-					pstm = con.prepareStatement(sql);
-					pstm.setInt(1, pos);
-					pstm.setInt(2, dir[0]);
-					pstm.setInt(3, dir[1]);
-					pstm.setInt(4, dir[2]);
-					pstm.setInt(5, dir[3]);
-					pstm.setInt(6, dir[4]);
-					pstm.setInt(7, dir[5]);
-					pstm.setInt(8, dir[6]);
-					pstm.setInt(9, dir[7]);
-					pstm.executeUpdate();
+			}
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, pos);
+			pstm.setInt(2, dir[0]);
+			pstm.setInt(3, dir[1]);
+			pstm.setInt(4, dir[2]);
+			pstm.setInt(5, dir[3]);
+			pstm.setInt(6, dir[4]);
+			pstm.setInt(7, dir[5]);
+			pstm.setInt(8, dir[6]);
+			pstm.setInt(9, dir[7]);
+			pstm.executeUpdate();
 
-				} catch (Exception ex) {
-					ex.printStackTrace();
-					throw new RuntimeException(ex);
-				}
-				XBee xbee = XConnection.getConnection();
-				if (valor == false) {
-					
-					FuncEnvio.enviarEscritura(xbee, 0, dir, pos);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		XBee xbee = XConnection.getConnection();
+		if (valor == false) {
 
-				} else {
-					FuncEnvio.enviarEscritura(xbee, 1, dir, pos);
+			FuncEnvio.enviarEscritura(xbee, 0, dir, pos);
 
+		} else {
+			FuncEnvio.enviarEscritura(xbee, 1, dir, pos);
 
-				}
-		
-				
+		}
+
 	}
-	
+
 	/**
 	 * Establece como inactivo el dispositivo
-	 * @param dir direccion del dispositivo
+	 * 
+	 * @param dir
+	 *            direccion del dispositivo
 	 */
-	public void ponerInactivo(int dir[]){
-		
+	public void ponerInactivo(int dir[]) {
+
 		Connection con = null;
 		PreparedStatement pstm = null;
 		con = IConnection.getConnection();
@@ -466,30 +473,32 @@ public class PerifericoLocalDAO {
 		sql += "UPDATE dispositivos SET activo=0 WHERE   dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
 		try {
 			pstm = con.prepareStatement(sql);
-		
-		pstm.setInt(1, dir[0]);
-		pstm.setInt(2, dir[1]);
-		pstm.setInt(3, dir[2]);
-		pstm.setInt(4, dir[3]);
-		pstm.setInt(5, dir[4]);
-		pstm.setInt(6, dir[5]);
-		pstm.setInt(7, dir[6]);
-		pstm.setInt(8, dir[7]);
-		pstm.executeUpdate();
+
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, dir[6]);
+			pstm.setInt(8, dir[7]);
+			pstm.executeUpdate();
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new RuntimeException(e);
 		}
-		
+
 	}
-	
+
 	/**
 	 * Establece como activo el dispositivo
-	 * @param dir direccion del dispositivo
+	 * 
+	 * @param dir
+	 *            direccion del dispositivo
 	 */
-	public void ponerActivo(int dir[]){
-		
+	public void ponerActivo(int dir[]) {
+
 		Connection con = null;
 		PreparedStatement pstm = null;
 		String sql = "";
@@ -497,16 +506,109 @@ public class PerifericoLocalDAO {
 		con = IConnection.getConnection();
 		try {
 			pstm = con.prepareStatement(sql);
-		
-		pstm.setInt(1, dir[0]);
-		pstm.setInt(2, dir[1]);
-		pstm.setInt(3, dir[2]);
-		pstm.setInt(4, dir[3]);
-		pstm.setInt(5, dir[4]);
-		pstm.setInt(6, dir[5]);
-		pstm.setInt(7, dir[6]);
-		pstm.setInt(8, dir[7]);
-		pstm.executeUpdate();
+
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, dir[6]);
+			pstm.setInt(8, dir[7]);
+			pstm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	/**
+	 * Dada una direcion devuelve la coleccion de perifericos
+	 * 
+	 * @param dir
+	 *            direccion solicitada (8 campos)
+	 * @return coleccion de perifericos
+	 */
+	public Collection<PerifericoLocalDTO> perifericosPorDirecion(int dir[]) {
+
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT * FROM perifericos WHERE  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+			pstm = con.prepareStatement(sql);
+
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, dir[6]);
+			pstm.setInt(8, dir[7]);
+			rs = pstm.executeQuery();
+
+			PerifericoLocalDTO dto = null;
+			Vector<PerifericoLocalDTO> ret = new Vector<PerifericoLocalDTO>();
+			while (rs.next()) {
+				dto = new PerifericoLocalDTO();
+				dto.setDir(dir);
+				dto.setPosicion(rs.getInt("posicion"));
+				dto.setBooleano(rs.getBoolean("booleano"));
+				dto.setEscribible(rs.getBoolean("escribible"));
+				dto.setPicMax(rs.getInt("picmax"));
+				dto.setPicMin(rs.getInt("picmin"));
+				dto.setRealMax(rs.getInt("realmax"));
+				dto.setRealMin(rs.getInt("realmin"));
+				dto.setNombreperi(rs.getString("nombreperi"));
+				dto.setValbool(rs.getBoolean("valbool"));
+				dto.setValReal(rs.getInt("valreal"));
+				dto.setNombreperi(rs.getString("nombreperi"));
+				ret.add(dto);
+			}
+			return ret;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+	}
+/**
+ * Devuelve colecion de todos los dispositivos que hay en la red
+ * @return
+ */
+	public Collection<DispositivoLocalDTO> todosDispositivosLocales() {
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT * FROM dispositivos";
+			pstm = con.prepareStatement(sql);
+			rs = pstm.executeQuery();
+
+			DispositivoLocalDTO dto = null;
+			Vector<DispositivoLocalDTO> ret = new Vector<DispositivoLocalDTO>();
+			while (rs.next()) {
+				dto = new DispositivoLocalDTO();
+				int dir[]={rs.getInt("dir1"),rs.getInt("dir2"),rs.getInt("dir3"),rs.getInt("dir4"),rs.getInt("dir5"),rs.getInt("dir6"),rs.getInt("dir7"),rs.getInt("dir8")};
+				dto.setDir(dir);
+				dto.setNombre(rs.getString("nombre"));
+				dto.setActivo(rs.getBoolean("activo"));
+				dto.setNumserie(rs.getInt("numserie"));
+				ret.add(dto);
+			}
+			return ret;
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

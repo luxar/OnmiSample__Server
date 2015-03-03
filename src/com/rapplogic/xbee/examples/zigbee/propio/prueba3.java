@@ -11,8 +11,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 
 
-import com.rapplogic.xbee.api.XBee;
-import com.rapplogic.xbee.connectionLayer.connectors.IConnection;
+
 
 import com.rapplogic.xbee.connectionLayer.recurrente.Mantenimiento;
 

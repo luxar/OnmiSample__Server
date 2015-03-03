@@ -2,7 +2,7 @@ package com.rapplogic.xbee.connectionLayer.DTO;
 
 public class PerifericoLocalDTO {
 	private int dir[];
-	private int posicion[];
+	private int posicion;
 	private int valReal;
 	private boolean valbool;
 	private int realMax;
@@ -18,10 +18,10 @@ public class PerifericoLocalDTO {
 	public void setDir(int[] dir) {
 		this.dir = dir;
 	}
-	public int[] getPosicion() {
+	public int getPosicion() {
 		return posicion;
 	}
-	public void setPosicion(int[] posicion) {
+	public void setPosicion(int posicion) {
 		this.posicion = posicion;
 	}
 	public int getValReal() {
