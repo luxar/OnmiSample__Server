@@ -24,7 +24,7 @@
 
 	<%
 	Mantenimiento mantenimiento = new Mantenimiento();
-	PropertyConfigurator.configure("log4j.properties");
+	//PropertyConfigurator.configure("log4j.properties");
 	%>
 
 
