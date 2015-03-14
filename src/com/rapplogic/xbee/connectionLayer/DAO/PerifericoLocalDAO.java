@@ -883,7 +883,7 @@ public class PerifericoLocalDAO {
 		}else if(valor[dirValor].equals("OFF")){
 			payload[i+1]=0;
 			payload[i+2]=0;
-			enviarValorSoloDB(dirValor+1,dir,true);
+			enviarValorSoloDB(dirValor+1,dir,false);
 		}else {
 			int[] limites=enviarValorSoloDB(dirValor+1,dir,Integer.parseInt(valor[dirValor]));
 			int valPic = Escalado.esc(limites[0],limites[1],limites[2],limites[3],Integer.parseInt(valor[dirValor]));
