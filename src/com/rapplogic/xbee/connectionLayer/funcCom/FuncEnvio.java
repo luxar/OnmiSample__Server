@@ -42,7 +42,13 @@ public class FuncEnvio {
 		// no transmit status response is sent, so don't bother calling getResponse()
 	}
 	
-	
+	/**
+	 * Envia una escritura de un unico puerto 
+	 * @param xbee conexion XBEE
+	 * @param valor Valor que se envia (en caso de booleano 0 para false y cualquier otro valor TRUE)
+	 * @param dir direccion de destion
+	 * @param pos posicion que se desea escribir
+	 */
 	public static void enviarEscritura (XBee xbee, int valor , int dir[], int pos) {
 		
 		
@@ -90,8 +96,58 @@ public class FuncEnvio {
 		// we just assume it was sent.  that's just the way it is with broadcast.  
 		// no transmit status response is sent, so don't bother calling getResponse()
 	}
-	
-	
+	/**
+	 * Funcion que envia la trama payload a un xbee
+	 * @param xbee conexion XBEE
+	 * @param dir direccion de destino
+	 * @param payload Trama completa
+	 */
+public static void enviarTrama (XBee xbee, int dir[], int payload[]) {
+		
+		
+		
+		
+		XBeeAddress64 addr64 = new XBeeAddress64(dir);
+		
+		ZNetTxRequest request = new ZNetTxRequest(addr64, payload);
+		try {
+			ZNetTxStatusResponse response = (ZNetTxStatusResponse) xbee
+					.sendSynchronous(request, 5000);
+			// update frame id for next request
+			request.setFrameId(xbee.getNextFrameId());
+
+			log.info("received response " + response);
+			
+			
+
+			if (response.getDeliveryStatus() == ZNetTxStatusResponse.DeliveryStatus.SUCCESS) {
+				// the packet was successfully delivered
+				if (response.getRemoteAddress16().equals(
+						XBeeAddress16.ZNET_BROADCAST)) {
+					// specify 16-bit address for faster routing?..
+					// really only need to do this when it changes
+					request.setDestAddr16(response
+							.getRemoteAddress16());
+				}
+			} else {
+				// packet failed. log error
+				// it's easy to create this error by
+				// unplugging/powering off your remote xbee. when
+				// doing so I get: packet failed due to error:
+				// ADDRESS_NOT_FOUND
+				log.error("packet failed due to error: "
+						+ response.getDeliveryStatus());
+			}
+
+			
+		} catch (XBeeException e) {
+			log.warn("request timed out");
+		}
+		
+		
+		// we just assume it was sent.  that's just the way it is with broadcast.  
+		// no transmit status response is sent, so don't bother calling getResponse()
+	}
 	
 	
 }

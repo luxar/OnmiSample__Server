@@ -4,6 +4,7 @@ package com.rapplogic.xbee.connectionLayer;
 import java.util.Collection;
 
 
+
 import com.rapplogic.xbee.connectionLayer.DAO.*;
 import com.rapplogic.xbee.connectionLayer.DTO.*;
 
@@ -133,6 +134,16 @@ public class Facade {
 	}
 	
 	/**
+	 * Dada una direcion devuelve la coleccion de perifericos escribibles
+	 * @param dir direccion solicitada (8 campos) 
+	 * @return coleccion de perifericos
+	 */
+	public Collection<PerifericoLocalDTO> perifericosPorDirecionEscribibles(int dir[]) {
+		PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
+		return perifericoLocalDAO.perifericosPorDirecionEscribibles(dir);
+	}
+	
+	/**
 	 * Devuelve colecion de todos los dispositivos que hay en la red
 	 * @return
 	 */
@@ -147,5 +158,22 @@ public class Facade {
 			public Collection<DispositivoLocalDTO> todosDispositivosLocalesActivos() {
 				PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
 				return perifericoLocalDAO.todosDispositivosLocalesActivos();
+			}
+			
+			
+			/**
+			 * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
+			 * base de datos local
+			 * 
+			 * @param posicion
+			 *            posicion del periferico
+			 * @param dir
+			 *            array con la direccion del periferco
+			 * @param valor
+			 *            valor Booleano
+			 */
+			public void enviarValores( int dir[], String[] valor) {
+				PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
+				perifericoLocalDAO.enviarValores(dir, valor);
 			}
 }

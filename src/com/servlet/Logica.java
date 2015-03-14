@@ -49,35 +49,22 @@ public class Logica extends HttpServlet {
 			int dir[]={Integer.parseInt(request.getParameter("dir1")),Integer.parseInt(request.getParameter("dir2")),Integer.parseInt(request.getParameter("dir3")),Integer.parseInt(request.getParameter("dir4")),Integer.parseInt(request.getParameter("dir5")),Integer.parseInt(request.getParameter("dir6")),Integer.parseInt(request.getParameter("dir7")),Integer.parseInt(request.getParameter("dir8"))};
 			fc.perifericosPorDirecion(dir);
 			PerifericoLocalDTO[] perifericoLocalDTO = (PerifericoLocalDTO[]) fc
-					.perifericosPorDirecion(dir).toArray(
+					.perifericosPorDirecionEscribibles(dir).toArray(
 							new PerifericoLocalDTO[0]);
+			String[] valores = new String[perifericoLocalDTO.length];
 			for(int i=0;i<perifericoLocalDTO.length;i++){
 				
-				if(!perifericoLocalDTO[i].isEscribible()){
-					break;
-				}
+				
+				
 				
 				String posicionSupuesta = "pos"+Integer.toString( i+1);
 				String valor = request.getParameter(posicionSupuesta);
-				if(valor.equals("ON")){
-					if(perifericoLocalDTO[i].isValbool()==true)
-						continue;
-					fc.enviarValor(i+1, dir, true);
-				}else if (valor.equals("OFF")){
-					if(perifericoLocalDTO[i].isValbool()==false)
-						continue;
-					fc.enviarValor(i+1, dir, false);
-				}else{
-					if(perifericoLocalDTO[i].getValReal()==Integer.parseInt(valor))
-						continue;
-					fc.enviarValor(i+1, dir, Integer.parseInt(valor));
-					int n;
-				}
+				valores[i]=valor;
 				
 				
 				
 			}
-			
+			fc.enviarValores(dir,valores);
 			
 			
 			

@@ -13,6 +13,7 @@ import com.rapplogic.xbee.connectionLayer.connectors.EConnection;
 import com.rapplogic.xbee.connectionLayer.connectors.IConnection;
 import com.rapplogic.xbee.connectionLayer.connectors.XConnection;
 import com.rapplogic.xbee.connectionLayer.funcCom.FuncEnvio;
+import com.rapplogic.xbee.util.DoubleByte;
 import com.rapplogic.xbee.util.Escalado;
 
 /**
@@ -695,6 +696,274 @@ public class PerifericoLocalDAO {
 		return 0;
 		
 	}
+	
+	
+/**
+ * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
+	 * base de datos local
+	 * 
+	 * @param pos
+	 *            posicion del periferico
+	 * @param dir
+	 *            array con la direccion del periferco
+	 * @param valor
+	 *            valor numerico
+ * @return Limites de las escalas {realMax,realMin,picMax,picMin}
+ */
+	public int[]  enviarValorSoloDB(int pos, int dir[], int valor) {
+		// TODO añadir control para no meter un bool en un int y si es
+		// escribible
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int realMax = 0;
+		int realMin = 0;
+		int picMax = 0;
+		int picMin = 0;
+		boolean booleano = false;
+		boolean escribible = false;
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT * FROM perifericos WHERE posicion=? AND  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, pos);
+			pstm.setInt(2, dir[0]);
+			pstm.setInt(3, dir[1]);
+			pstm.setInt(4, dir[2]);
+			pstm.setInt(5, dir[3]);
+			pstm.setInt(6, dir[4]);
+			pstm.setInt(7, dir[5]);
+			pstm.setInt(8, dir[6]);
+			pstm.setInt(9, dir[7]);
+			rs = pstm.executeQuery();
+			if (rs.next()) {
+				realMax = rs.getInt("realmax");
+				realMin = rs.getInt("realmin");
+				picMax = rs.getInt("picmax");
+				picMin = rs.getInt("picmin");
+				booleano = rs.getBoolean("booleano");
+				escribible = rs.getBoolean("escribible");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+
+		try {
+
+			String sql = "";
+			sql += "UPDATE perifericos SET valreal=? WHERE  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=? AND posicion=?";
+			pstm = con.prepareStatement(sql);
+
+			pstm.setInt(1, valor);
+			pstm.setInt(2, dir[0]);
+			pstm.setInt(3, dir[1]);
+			pstm.setInt(4, dir[2]);
+			pstm.setInt(5, dir[3]);
+			pstm.setInt(6, dir[4]);
+			pstm.setInt(7, dir[5]);
+			pstm.setInt(8, dir[6]);
+			pstm.setInt(9, dir[7]);
+			pstm.setInt(10, pos);
+			pstm.executeUpdate();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		int limites[]={realMax,realMin,picMax,picMin};
+		return limites;
+	}
+
+	/**
+	 * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
+	 * base de datos local
+	 * 
+	 * @param posicion
+	 *            posicion del periferico
+	 * @param dir
+	 *            array con la direccion del periferco
+	 * @param valor
+	 *            valor Booleano
+	 */
+	public void enviarValorSoloDB(int pos, int dir[], boolean valor) {
+		// TODO añadir control para no meter un bool en un int
+		// TODO añadir control para no meter un bool en un int y si es
+		// escribible
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int realMax = 0;
+		int realMin = 0;
+		int picMax = 0;
+		int picMin = 0;
+		boolean booleano = false;
+		boolean escribible = false;
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT * FROM perifericos WHERE posicion=? AND  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, pos);
+			pstm.setInt(2, dir[0]);
+			pstm.setInt(3, dir[1]);
+			pstm.setInt(4, dir[2]);
+			pstm.setInt(5, dir[3]);
+			pstm.setInt(6, dir[4]);
+			pstm.setInt(7, dir[5]);
+			pstm.setInt(8, dir[6]);
+			pstm.setInt(9, dir[7]);
+			rs = pstm.executeQuery();
+			if (rs.next()) {
+				realMax = rs.getInt("realmax");
+				realMin = rs.getInt("realmin");
+				picMax = rs.getInt("picmax");
+				picMin = rs.getInt("picmin");
+				booleano = rs.getBoolean("booleano");
+				escribible = rs.getBoolean("escribible");
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		try {
+			String sql = "";
+			if (valor == false) {
+
+				sql += "UPDATE perifericos SET valbool=0 WHERE  posicion=? AND dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+
+			} else {
+
+				sql += "UPDATE perifericos SET valbool=1 WHERE  posicion=? AND dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=? ";
+
+			}
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, pos);
+			pstm.setInt(2, dir[0]);
+			pstm.setInt(3, dir[1]);
+			pstm.setInt(4, dir[2]);
+			pstm.setInt(5, dir[3]);
+			pstm.setInt(6, dir[4]);
+			pstm.setInt(7, dir[5]);
+			pstm.setInt(8, dir[6]);
+			pstm.setInt(9, dir[7]);
+			pstm.executeUpdate();
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException(ex);
+		}
+		
+
+	}
+	
+	/**
+	 * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
+	 * base de datos local
+	 * 
+	 * @param posicion
+	 *            posicion del periferico
+	 * @param dir
+	 *            array con la direccion del periferco
+	 * @param valor
+	 *            valor Booleano
+	 */
+	public void enviarValores( int dir[], String[] valor) {
+		
+		int[] payload = new int[valor.length*3+1];
+		payload[0]='W';
+		int dirValor=0;
+		for (int i=1;i<valor.length*3+1;i++){
+			payload[i]=dirValor+1;
+		if(valor[dirValor].equals("ON")){
+			payload[i+1]=0;
+			payload[i+2]=255;
+			enviarValorSoloDB(dirValor+1,dir,true);
+		}else if(valor[dirValor].equals("OFF")){
+			payload[i+1]=0;
+			payload[i+2]=0;
+			enviarValorSoloDB(dirValor+1,dir,true);
+		}else {
+			int[] limites=enviarValorSoloDB(dirValor+1,dir,Integer.parseInt(valor[dirValor]));
+			int valPic = Escalado.esc(limites[0],limites[1],limites[2],limites[3],Integer.parseInt(valor[dirValor]));
+			DoubleByte valor2Byte = new DoubleByte(valPic);	
+			payload[i+1]=valor2Byte.getMsb();
+			payload[i+2]=valor2Byte.getLsb();
+		}
+			
+		dirValor++;	
+		i++;
+		i++;
+		}
+		
+		XBee xbee = XConnection.getConnection();
+		FuncEnvio.enviarTrama(xbee, dir, payload);
+		
+		
+	}
+	
+	/**
+	 * Dada una direcion devuelve la coleccion de perifericos
+	 * 
+	 * @param dir
+	 *            direccion solicitada (8 campos)
+	 * @return coleccion de perifericos
+	 */
+	public Collection<PerifericoLocalDTO> perifericosPorDirecionEscribibles(int dir[]) {
+
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT * FROM perifericos WHERE  dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=? AND escribible=1";
+			pstm = con.prepareStatement(sql);
+
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, dir[6]);
+			pstm.setInt(8, dir[7]);
+			rs = pstm.executeQuery();
+
+			PerifericoLocalDTO dto = null;
+			Vector<PerifericoLocalDTO> ret = new Vector<PerifericoLocalDTO>();
+			while (rs.next()) {
+				dto = new PerifericoLocalDTO();
+				dto.setDir(dir);
+				dto.setPosicion(rs.getInt("posicion"));
+				dto.setBooleano(rs.getBoolean("booleano"));
+				dto.setEscribible(rs.getBoolean("escribible"));
+				dto.setPicMax(rs.getInt("picmax"));
+				dto.setPicMin(rs.getInt("picmin"));
+				dto.setRealMax(rs.getInt("realmax"));
+				dto.setRealMin(rs.getInt("realmin"));
+				dto.setNombreperi(rs.getString("nombreperi"));
+				dto.setValbool(rs.getBoolean("valbool"));
+				dto.setValReal(rs.getInt("valreal"));
+				dto.setNombreperi(rs.getString("nombreperi"));
+				ret.add(dto);
+			}
+			return ret;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+	}
+	
+	
+	
+	
+	
 	
 	
 	
