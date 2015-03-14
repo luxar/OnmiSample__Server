@@ -140,5 +140,12 @@ public class Facade {
 			PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
 			return perifericoLocalDAO.todosDispositivosLocales();
 		}
-	
+		/**
+		 * Devuelve colecion de todos los dispositivos que hay en la red activos
+		 * @return
+		 */
+			public Collection<DispositivoLocalDTO> todosDispositivosLocalesActivos() {
+				PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
+				return perifericoLocalDAO.todosDispositivosLocalesActivos();
+			}
 }

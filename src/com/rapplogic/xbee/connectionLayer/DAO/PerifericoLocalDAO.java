@@ -617,4 +617,85 @@ public class PerifericoLocalDAO {
 		}
 		
 	}
+	
+	/**
+	 * Devuelve colecion de todos los dispositivos que hay en la red activos
+	 * @return
+	 */
+		public Collection<DispositivoLocalDTO> todosDispositivosLocalesActivos() {
+			Connection con = null;
+			PreparedStatement pstm = null;
+			ResultSet rs = null;
+
+			try {
+				con = IConnection.getConnection();
+				String sql = "";
+				sql += "SELECT * FROM dispositivos where activo=1";
+				pstm = con.prepareStatement(sql);
+				rs = pstm.executeQuery();
+
+				DispositivoLocalDTO dto = null;
+				Vector<DispositivoLocalDTO> ret = new Vector<DispositivoLocalDTO>();
+				while (rs.next()) {
+					dto = new DispositivoLocalDTO();
+					int dir[]={rs.getInt("dir1"),rs.getInt("dir2"),rs.getInt("dir3"),rs.getInt("dir4"),rs.getInt("dir5"),rs.getInt("dir6"),rs.getInt("dir7"),rs.getInt("dir8")};
+					dto.setDir(dir);
+					dto.setNombre(rs.getString("nombre"));
+					dto.setActivo(rs.getBoolean("activo"));
+					dto.setNumserie(rs.getInt("numserie"));
+					ret.add(dto);
+				}
+				return ret;
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				throw new RuntimeException(e);
+			}
+			
+		}
+		
+	/**
+	 * Devuelve el numero de perifericos que tiene el dispositivo en esa dir
+	 * @param dir direcion del dispositivo que se de sea consultar
+	 * @return numero de dispositivos
+	 */
+	public int numeroPerifericos(int[] dir){
+		
+		
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT count(*) FROM perifericos WHERE dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+			pstm = con.prepareStatement(sql);
+			
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, dir[6]);
+			pstm.setInt(8, dir[7]);
+			rs = pstm.executeQuery();
+			if (rs.next()) {
+				return rs.getInt("count(*)");
+			}
+			
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		return 0;
+		
+	}
+	
+	
+	
 }

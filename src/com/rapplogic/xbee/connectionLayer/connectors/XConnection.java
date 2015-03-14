@@ -88,17 +88,22 @@ public class XConnection {
 									}
 
 								} else if (datos[0] == 0x52) {
-
+									for(int i = 1;i<datos.length;i++){
+										
+									
 									log.info("Lectura de un sensor");
 
-									log.info("Sensor numero: " + datos[1]);
-									DoubleByte valor2Byte = new DoubleByte(datos[2],
-											datos[3]);
+									log.info("Sensor numero: " + datos[i]);
+									DoubleByte valor2Byte = new DoubleByte(datos[i+1],
+											datos[i+2]);
 									int valor = valor2Byte.get16BitValue();
 									log.info("Valor: " + valor);
 									PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
-									perifericoLocalDAO.recogerDatos(valor, direcion, datos[1]);
+									perifericoLocalDAO.recogerDatos(valor, direcion, datos[i]);
 									// lectura
+									i++;
+									i++;
+									}
 								} else {
 									log.info("Comando no valido");
 									// ni idea
