@@ -92,6 +92,27 @@ public class PerifericoLocalDAO {
 				nombre = rs.getString("nombre");
 
 			}
+			
+			if(existeNombre(nombre)){
+				boolean repetido=true;
+				String nombreBase=nombre;
+				int iteracion =1;
+				while(repetido){
+					nombre=nombreBase+"-"+Integer.toString(iteracion);
+					
+					if(existeNombre(nombre)){
+						
+						iteracion++;
+					}else{
+						repetido=false;
+					}
+				}
+			}
+				
+			
+			
+			
+			
 			con = IConnection.getConnection();
 			sql = "INSERT INTO dispositivos (dir1, dir2 , dir3 , dir4 , dir5 , dir6 ,  numserie, activo, nombre , dir7 , dir8  ) VALUES( ? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ? )";
 			pstm = con.prepareStatement(sql);
@@ -582,10 +603,12 @@ public class PerifericoLocalDAO {
 		}
 
 	}
-/**
- * Devuelve colecion de todos los dispositivos que hay en la red
- * @return
- */
+
+	/**
+	 * Devuelve colecion de todos los dispositivos que hay en la red
+	 * 
+	 * @return
+	 */
 	public Collection<DispositivoLocalDTO> todosDispositivosLocales() {
 		Connection con = null;
 		PreparedStatement pstm = null;
@@ -602,7 +625,10 @@ public class PerifericoLocalDAO {
 			Vector<DispositivoLocalDTO> ret = new Vector<DispositivoLocalDTO>();
 			while (rs.next()) {
 				dto = new DispositivoLocalDTO();
-				int dir[]={rs.getInt("dir1"),rs.getInt("dir2"),rs.getInt("dir3"),rs.getInt("dir4"),rs.getInt("dir5"),rs.getInt("dir6"),rs.getInt("dir7"),rs.getInt("dir8")};
+				int dir[] = { rs.getInt("dir1"), rs.getInt("dir2"),
+						rs.getInt("dir3"), rs.getInt("dir4"),
+						rs.getInt("dir5"), rs.getInt("dir6"),
+						rs.getInt("dir7"), rs.getInt("dir8") };
 				dto.setDir(dir);
 				dto.setNombre(rs.getString("nombre"));
 				dto.setActivo(rs.getBoolean("activo"));
@@ -616,54 +642,59 @@ public class PerifericoLocalDAO {
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
-		
+
 	}
-	
+
 	/**
 	 * Devuelve colecion de todos los dispositivos que hay en la red activos
+	 * 
 	 * @return
 	 */
-		public Collection<DispositivoLocalDTO> todosDispositivosLocalesActivos() {
-			Connection con = null;
-			PreparedStatement pstm = null;
-			ResultSet rs = null;
+	public Collection<DispositivoLocalDTO> todosDispositivosLocalesActivos() {
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
 
-			try {
-				con = IConnection.getConnection();
-				String sql = "";
-				sql += "SELECT * FROM dispositivos where activo=1";
-				pstm = con.prepareStatement(sql);
-				rs = pstm.executeQuery();
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT * FROM dispositivos where activo=1";
+			pstm = con.prepareStatement(sql);
+			rs = pstm.executeQuery();
 
-				DispositivoLocalDTO dto = null;
-				Vector<DispositivoLocalDTO> ret = new Vector<DispositivoLocalDTO>();
-				while (rs.next()) {
-					dto = new DispositivoLocalDTO();
-					int dir[]={rs.getInt("dir1"),rs.getInt("dir2"),rs.getInt("dir3"),rs.getInt("dir4"),rs.getInt("dir5"),rs.getInt("dir6"),rs.getInt("dir7"),rs.getInt("dir8")};
-					dto.setDir(dir);
-					dto.setNombre(rs.getString("nombre"));
-					dto.setActivo(rs.getBoolean("activo"));
-					dto.setNumserie(rs.getInt("numserie"));
-					ret.add(dto);
-				}
-				return ret;
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				throw new RuntimeException(e);
+			DispositivoLocalDTO dto = null;
+			Vector<DispositivoLocalDTO> ret = new Vector<DispositivoLocalDTO>();
+			while (rs.next()) {
+				dto = new DispositivoLocalDTO();
+				int dir[] = { rs.getInt("dir1"), rs.getInt("dir2"),
+						rs.getInt("dir3"), rs.getInt("dir4"),
+						rs.getInt("dir5"), rs.getInt("dir6"),
+						rs.getInt("dir7"), rs.getInt("dir8") };
+				dto.setDir(dir);
+				dto.setNombre(rs.getString("nombre"));
+				dto.setActivo(rs.getBoolean("activo"));
+				dto.setNumserie(rs.getInt("numserie"));
+				ret.add(dto);
 			}
-			
+			return ret;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		
+
+	}
+
 	/**
 	 * Devuelve el numero de perifericos que tiene el dispositivo en esa dir
-	 * @param dir direcion del dispositivo que se de sea consultar
+	 * 
+	 * @param dir
+	 *            direcion del dispositivo que se de sea consultar
 	 * @return numero de dispositivos
 	 */
-	public int numeroPerifericos(int[] dir){
-		
-		
+	public int numeroPerifericos(int[] dir) {
+
 		Connection con = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -673,7 +704,7 @@ public class PerifericoLocalDAO {
 			String sql = "";
 			sql += "SELECT count(*) FROM perifericos WHERE dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
 			pstm = con.prepareStatement(sql);
-			
+
 			pstm.setInt(1, dir[0]);
 			pstm.setInt(2, dir[1]);
 			pstm.setInt(3, dir[2]);
@@ -686,7 +717,6 @@ public class PerifericoLocalDAO {
 			if (rs.next()) {
 				return rs.getInt("count(*)");
 			}
-			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -694,12 +724,11 @@ public class PerifericoLocalDAO {
 			throw new RuntimeException(e);
 		}
 		return 0;
-		
+
 	}
-	
-	
-/**
- * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
+
+	/**
+	 * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
 	 * base de datos local
 	 * 
 	 * @param pos
@@ -708,9 +737,9 @@ public class PerifericoLocalDAO {
 	 *            array con la direccion del periferco
 	 * @param valor
 	 *            valor numerico
- * @return Limites de las escalas {realMax,realMin,picMax,picMin}
- */
-	public int[]  enviarValorSoloDB(int pos, int dir[], int valor) {
+	 * @return Limites de las escalas {realMax,realMin,picMax,picMin}
+	 */
+	public int[] enviarValorSoloDB(int pos, int dir[], int valor) {
 		// TODO añadir control para no meter un bool en un int y si es
 		// escribible
 		Connection con = null;
@@ -772,7 +801,7 @@ public class PerifericoLocalDAO {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-		int limites[]={realMax,realMin,picMax,picMin};
+		int limites[] = { realMax, realMin, picMax, picMin };
 		return limites;
 	}
 
@@ -854,10 +883,9 @@ public class PerifericoLocalDAO {
 			ex.printStackTrace();
 			throw new RuntimeException(ex);
 		}
-		
 
 	}
-	
+
 	/**
 	 * Envia un valor al dispositivo a traves de la red xbee ademas lo sube a la
 	 * base de datos local
@@ -869,40 +897,41 @@ public class PerifericoLocalDAO {
 	 * @param valor
 	 *            valor Booleano
 	 */
-	public void enviarValores( int dir[], String[] valor) {
-		
-		int[] payload = new int[valor.length*3+1];
-		payload[0]='W';
-		int dirValor=0;
-		for (int i=1;i<valor.length*3+1;i++){
-			payload[i]=dirValor+1;
-		if(valor[dirValor].equals("ON")){
-			payload[i+1]=0;
-			payload[i+2]=255;
-			enviarValorSoloDB(dirValor+1,dir,true);
-		}else if(valor[dirValor].equals("OFF")){
-			payload[i+1]=0;
-			payload[i+2]=0;
-			enviarValorSoloDB(dirValor+1,dir,false);
-		}else {
-			int[] limites=enviarValorSoloDB(dirValor+1,dir,Integer.parseInt(valor[dirValor]));
-			int valPic = Escalado.esc(limites[0],limites[1],limites[2],limites[3],Integer.parseInt(valor[dirValor]));
-			DoubleByte valor2Byte = new DoubleByte(valPic);	
-			payload[i+1]=valor2Byte.getMsb();
-			payload[i+2]=valor2Byte.getLsb();
+	public void enviarValores(int dir[], String[] valor) {
+
+		int[] payload = new int[valor.length * 3 + 1];
+		payload[0] = 'W';
+		int dirValor = 0;
+		for (int i = 1; i < valor.length * 3 + 1; i++) {
+			payload[i] = dirValor + 1;
+			if (valor[dirValor].equals("ON")) {
+				payload[i + 1] = 0;
+				payload[i + 2] = 255;
+				enviarValorSoloDB(dirValor + 1, dir, true);
+			} else if (valor[dirValor].equals("OFF")) {
+				payload[i + 1] = 0;
+				payload[i + 2] = 0;
+				enviarValorSoloDB(dirValor + 1, dir, false);
+			} else {
+				int[] limites = enviarValorSoloDB(dirValor + 1, dir,
+						Integer.parseInt(valor[dirValor]));
+				int valPic = Escalado.esc(limites[0], limites[1], limites[2],
+						limites[3], Integer.parseInt(valor[dirValor]));
+				DoubleByte valor2Byte = new DoubleByte(valPic);
+				payload[i + 1] = valor2Byte.getMsb();
+				payload[i + 2] = valor2Byte.getLsb();
+			}
+
+			dirValor++;
+			i++;
+			i++;
 		}
-			
-		dirValor++;	
-		i++;
-		i++;
-		}
-		
+
 		XBee xbee = XConnection.getConnection();
 		FuncEnvio.enviarTrama(xbee, dir, payload);
-		
-		
+
 	}
-	
+
 	/**
 	 * Dada una direcion devuelve la coleccion de perifericos
 	 * 
@@ -910,7 +939,8 @@ public class PerifericoLocalDAO {
 	 *            direccion solicitada (8 campos)
 	 * @return coleccion de perifericos
 	 */
-	public Collection<PerifericoLocalDTO> perifericosPorDirecionEscribibles(int dir[]) {
+	public Collection<PerifericoLocalDTO> perifericosPorDirecionEscribibles(
+			int dir[]) {
 
 		Connection con = null;
 		PreparedStatement pstm = null;
@@ -959,12 +989,64 @@ public class PerifericoLocalDAO {
 		}
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Devuelve true si ese nombre ya existe en la base de datos de dispositivos
+	 * @param nombre nombre que se quiere comporbar
+	 * @return
+	 */
+	public boolean existeNombre(String nombre) {
+		Connection con = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+
+		try {
+			con = IConnection.getConnection();
+			String sql = "";
+			sql += "SELECT nombre FROM dispositivos WHERE  nombre=?";
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, nombre);
+			rs = pstm.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+
+			return false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	/**
+	 * Permite cambiar el nombre a un dispositivo en la base de datos local
+	 *  @param nombre nuevo nombre
+	 * @param dir diercion del dispositivo
+	 */
+	public void cambiarNombre(String nombre, int[] dir){
+
+		Connection con = null;
+		PreparedStatement pstm = null;
+		String sql = "";
+		sql += "UPDATE dispositivos SET nombre=? WHERE   dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+		con = IConnection.getConnection();
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, nombre);
+			pstm.setInt(2, dir[0]);
+			pstm.setInt(3, dir[1]);
+			pstm.setInt(4, dir[2]);
+			pstm.setInt(5, dir[3]);
+			pstm.setInt(6, dir[4]);
+			pstm.setInt(7, dir[5]);
+			pstm.setInt(8, dir[6]);
+			pstm.setInt(9, dir[7]);
+			pstm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
+	}
 }

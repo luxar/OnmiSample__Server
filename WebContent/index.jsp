@@ -65,13 +65,21 @@
 
 
 				<li><form class="navbar-form navbar-left" role="admin"
-						 METHOD=POST action="logica">
+						METHOD=POST action="logica">
 						<input type="hidden" name="accion" value="admin">
-						<%if(facade.isAdminMode()){ %>
-						<button type="submit" class="btn btn-default">Modo Admin ON</button>
-						<%}else{ %>
-						<button type="submit" class="btn btn-default">Modo Admin OFF</button>
-						<%} %>
+						<%
+							if (facade.isAdminMode()) {
+						%>
+						<button type="submit" class="btn btn-default">Modo Admin
+							ON</button>
+						<%
+							} else {
+						%>
+						<button type="submit" class="btn btn-default">Modo Admin
+							OFF</button>
+						<%
+							}
+						%>
 					</form></li>
 
 
@@ -121,70 +129,108 @@
 							<%
 								}
 							%>
-
+							
 							<div class="panel-heading">
+							<%if(facade.isAdminMode()){ %>
+							<form role="form" METHOD=POST action="logica">
+									<%
+										int dir[] = dispositivoLocalDTO[i].getDir();
+									%>
+									<input type="hidden" name="accion" value="nombre"> <input
+										type="hidden" name="dir1" value="<%=dir[0]%>"> <input
+										type="hidden" name="dir2" value="<%=dir[1]%>"> <input
+										type="hidden" name="dir3" value="<%=dir[2]%>"> <input
+										type="hidden" name="dir4" value="<%=dir[3]%>"> <input
+										type="hidden" name="dir5" value="<%=dir[4]%>"> <input
+										type="hidden" name="dir6" value="<%=dir[5]%>"> <input
+										type="hidden" name="dir7" value="<%=dir[6]%>"> <input
+										type="hidden" name="dir8" value="<%=dir[7]%>">
+										<input id="nuevoNombre"
+											name="nuevoNombre"
+											class="form-control"
+											value="<%=dispositivoLocalDTO[i].getNombre()%>" >
+											<button type="submit" class="btn btn-default" >Cambiar</button>
+										
+							
+							<%}else{ %>
 								<%=dispositivoLocalDTO[i].getNombre()%>
+								<%} %>
 							</div>
 							<div class="panel-body">
 
 
 								<form role="form" METHOD=POST action="logica">
-										<%
-										int dir[]= dispositivoLocalDTO[i].getDir();
-										%>
-										<input type="hidden" name="accion" value="guardar">
-										<input type="hidden" name="dir1" value="<%=dir[0]%>">
-										<input type="hidden" name="dir2" value="<%=dir[1]%>">
-										<input type="hidden" name="dir3" value="<%=dir[2]%>">
-										<input type="hidden" name="dir4" value="<%=dir[3]%>">
-										<input type="hidden" name="dir5" value="<%=dir[4]%>">
-										<input type="hidden" name="dir6" value="<%=dir[5]%>">
-										<input type="hidden" name="dir7" value="<%=dir[6]%>">
-										<input type="hidden" name="dir8" value="<%=dir[7]%>">
+									<%
+										int dir[] = dispositivoLocalDTO[i].getDir();
+									%>
+									<input type="hidden" name="accion" value="guardar"> <input
+										type="hidden" name="dir1" value="<%=dir[0]%>"> <input
+										type="hidden" name="dir2" value="<%=dir[1]%>"> <input
+										type="hidden" name="dir3" value="<%=dir[2]%>"> <input
+										type="hidden" name="dir4" value="<%=dir[3]%>"> <input
+										type="hidden" name="dir5" value="<%=dir[4]%>"> <input
+										type="hidden" name="dir6" value="<%=dir[5]%>"> <input
+										type="hidden" name="dir7" value="<%=dir[6]%>"> <input
+										type="hidden" name="dir8" value="<%=dir[7]%>">
 									<%
 										for (int n = 0; n < perifericoLocalDTO.length; n++) {
-											boolean boleano = perifericoLocalDTO[n].isBooleano();
-											String disable="";
-											if(perifericoLocalDTO[n].isEscribible()&&activo){
-												disable="";
-											}else{
-												disable="disabled";
-											}
+												boolean boleano = perifericoLocalDTO[n].isBooleano();
+												String disable = "";
+												if (perifericoLocalDTO[n].isEscribible() && activo) {
+													disable = "";
+												} else {
+													disable = "disabled";
+												}
 									%>
-									<%if (!boleano){ %>
+									<%
+										if (!boleano) {
+									%>
 									<div class="form-group">
 										<label for="periferico"><%=perifericoLocalDTO[n].getNombreperi()%></label>
-										<input id="pos<%=perifericoLocalDTO[n].getPosicion()%>" name="pos<%=perifericoLocalDTO[n].getPosicion()%>"
+										<input id="pos<%=perifericoLocalDTO[n].getPosicion()%>"
+											name="pos<%=perifericoLocalDTO[n].getPosicion()%>"
 											class="form-control"
 											value="<%=perifericoLocalDTO[n].getValReal()%>" <%=disable%>>
 									</div>
-									<%}else{ %>
+									<%
+										} else {
+									%>
 									<div class="form-group">
-									<label for="periferico"><%=perifericoLocalDTO[n].getNombreperi()%></label>
-									<select  class="form-control" name="pos<%=perifericoLocalDTO[n].getPosicion()%>" id="pos<%=perifericoLocalDTO[n].getPosicion()%>" <%=disable%>>
-									 <%if (perifericoLocalDTO[n].isValbool()){ %>
-									
-										<option >ON</option>
-										<option>OFF</option>
-									
-									<%}else{ %>
-									<option >OFF</option>
-									<option>ON</option>
-									
-									<%} %>
-									
-									</select>
+										<label for="periferico"><%=perifericoLocalDTO[n].getNombreperi()%></label>
+										<select class="form-control"
+											name="pos<%=perifericoLocalDTO[n].getPosicion()%>"
+											id="pos<%=perifericoLocalDTO[n].getPosicion()%>" <%=disable%>>
+											<%
+												if (perifericoLocalDTO[n].isValbool()) {
+											%>
+
+											<option>ON</option>
+											<option>OFF</option>
+
+											<%
+												} else {
+											%>
+											<option>OFF</option>
+											<option>ON</option>
+
+											<%
+												}
+											%>
+
+										</select>
 
 									</div>
-									<%} %>
 									<%
 										}
-									String disable="";
-									if(activo){
-										disable="";
-									}else{
-										disable="disabled";
-									}
+									%>
+									<%
+										}
+											String disable = "";
+											if (activo) {
+												disable = "";
+											} else {
+												disable = "disabled";
+											}
 									%>
 
 									<button type="submit" class="btn btn-default" <%=disable%>>Guardar</button>

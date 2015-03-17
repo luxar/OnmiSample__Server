@@ -15,8 +15,10 @@ import com.rapplogic.xbee.connectionLayer.DTO.DispositivoLocalDTO;
 import com.rapplogic.xbee.connectionLayer.DTO.PerifericoLocalDTO;
 import com.rapplogic.xbee.connectionLayer.connectors.IConnection;
 import com.rapplogic.xbee.util.ByteUtils;
+
 /**
  * Hilo que envia concurrentemente peticiones de lectura de datos
+ * 
  * @author Lucas Alvarez Argüero
  *
  */
@@ -33,26 +35,27 @@ public class HiloSonda extends Thread {
 
 	public void run() {
 		int pos = 0;
-		//TODO pasar a inactivos y activos
+		// TODO pasar a inactivos y activos
 		PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
 		while (true) {
-			
-			
+
 			DispositivoLocalDTO[] DispositivoLocalDTO = (DispositivoLocalDTO[]) perifericoLocalDAO
 					.todosDispositivosLocalesActivos().toArray(
 							new DispositivoLocalDTO[0]);
-			
+
 			for (int i = 0; i < DispositivoLocalDTO.length; i++) {
-				
-				int numero =perifericoLocalDAO.numeroPerifericos(DispositivoLocalDTO[i].getDir());
-				int mensaje[]= new int[numero+1] ;
-				
-				mensaje[0]='R';
-				for(int n=1;n<numero+1;n++){
-					
-					mensaje[n]=n;
+
+				int numero = perifericoLocalDAO
+						.numeroPerifericos(DispositivoLocalDTO[i].getDir());
+				int mensaje[] = new int[numero + 1];
+
+				mensaje[0] = 'R';
+				for (int n = 1; n < numero + 1; n++) {
+
+					mensaje[n] = n;
 				}
-				XBeeAddress64 addr64 = new XBeeAddress64(DispositivoLocalDTO[i].getDir());
+				XBeeAddress64 addr64 = new XBeeAddress64(
+						DispositivoLocalDTO[i].getDir());
 				ZNetTxRequest request = new ZNetTxRequest(addr64, mensaje);
 				try {
 					ZNetTxStatusResponse response = (ZNetTxStatusResponse) xbee
@@ -61,8 +64,6 @@ public class HiloSonda extends Thread {
 					request.setFrameId(xbee.getNextFrameId());
 
 					log.info("received response " + response);
-					
-					
 
 					if (response.getDeliveryStatus() == ZNetTxStatusResponse.DeliveryStatus.SUCCESS) {
 						// the packet was successfully delivered
@@ -70,8 +71,7 @@ public class HiloSonda extends Thread {
 								XBeeAddress16.ZNET_BROADCAST)) {
 							// specify 16-bit address for faster routing?..
 							// really only need to do this when it changes
-							request.setDestAddr16(response
-									.getRemoteAddress16());
+							request.setDestAddr16(response.getRemoteAddress16());
 						}
 					} else {
 						// packet failed. log error
@@ -81,17 +81,16 @@ public class HiloSonda extends Thread {
 						// ADDRESS_NOT_FOUND
 						log.error("packet failed due to error: "
 								+ response.getDeliveryStatus());
-						perifericoLocalDAO.ponerInactivo(DispositivoLocalDTO[i].getDir());
-						
+						perifericoLocalDAO.ponerInactivo(DispositivoLocalDTO[i]
+								.getDir());
+
 					}
 
-					
 				} catch (XBeeException e) {
 					log.warn("request timed out");
 				}
 			}
-			
-				
+
 			try {
 				sleep(3000);
 			} catch (InterruptedException e) {
