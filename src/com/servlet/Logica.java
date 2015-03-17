@@ -73,6 +73,15 @@ public class Logica extends HttpServlet {
 			String site = "index.jsp";
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
 			response.setHeader("Location", site);
+		} else if(accion.equals("admin")){
+			if(fc.isAdminMode()){
+				fc.setAdminMode(false);
+			}else{
+				fc.setAdminMode(true);
+			}
+			String site = "index.jsp";
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site);
 		}
 
 	}

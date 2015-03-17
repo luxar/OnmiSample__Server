@@ -64,10 +64,14 @@
 
 
 
-				<li><form class="navbar-form navbar-left" role="Resinctro"
-						METHOD=POST action="logica">
-						<input type="hidden" name="accion" value="Resinctro">
-						<button type="submit" class="btn btn-default">Deslogear</button>
+				<li><form class="navbar-form navbar-left" role="admin"
+						 METHOD=POST action="logica">
+						<input type="hidden" name="accion" value="admin">
+						<%if(facade.isAdminMode()){ %>
+						<button type="submit" class="btn btn-default">Modo Admin ON</button>
+						<%}else{ %>
+						<button type="submit" class="btn btn-default">Modo Admin OFF</button>
+						<%} %>
 					</form></li>
 
 

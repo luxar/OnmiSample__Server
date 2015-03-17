@@ -5,8 +5,10 @@ import java.util.Collection;
 
 
 
+
 import com.rapplogic.xbee.connectionLayer.DAO.*;
 import com.rapplogic.xbee.connectionLayer.DTO.*;
+import com.rapplogic.xbee.connectionLayer.connectors.XConnection;
 
 
 public class Facade {
@@ -175,5 +177,20 @@ public class Facade {
 			public void enviarValores( int dir[], String[] valor) {
 				PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
 				perifericoLocalDAO.enviarValores(dir, valor);
+			}
+			
+			/**
+			 * Devuelve si se esta en modo admin	
+			 * @return true si esta en modo admin.
+			 */
+			public  boolean isAdminMode() {
+				return XConnection.isAdminMode();
+			}
+			/**
+			 * Establece el modo administrador (permite que se añadan nuevos dispositivos a la red cuando esta a true)
+			 * @param adminMode booleano con el modo que se desea
+			 */
+			public  void setAdminMode(boolean adminMode) {
+				XConnection.setAdminMode ( adminMode);
 			}
 }

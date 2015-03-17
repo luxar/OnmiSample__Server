@@ -22,7 +22,7 @@ import com.rapplogic.xbee.util.DoubleByte;
 public class XConnection {
 	private static XBee xbee = null;
 	private final static Logger log = Logger.getLogger(XConnection.class);
-
+	private static boolean adminMode=false;
 	public static XBee getConnection() {
 
 		try {
@@ -82,9 +82,13 @@ public class XConnection {
 										log.info("periferico con numero de serie "
 												+ Numserie + " que tiene "
 												+ perifericoDTO.size() + " puertos");
+										if(isAdminMode()){
 										log.info("añadiendo a base interna de datos");
 										perifericoLocalDAO.anhadirADB(perifericoDTO,
 												direcion);
+										}else{
+											log.info("no esta el modo admin activado , no se puede añadir");
+										}
 									}
 
 								} else if (datos[0] == 0x52) {
@@ -129,6 +133,7 @@ public class XConnection {
 				
 				FuncEnvio.solicitarNumseries(xbee);
 				
+				
 			}
 			return xbee;
 
@@ -137,6 +142,12 @@ public class XConnection {
 			throw new RuntimeException("Error al acceder a la conexion");
 		}
 
+	}
+	public static boolean isAdminMode() {
+		return adminMode;
+	}
+	public static void setAdminMode(boolean adminMode) {
+		XConnection.adminMode = adminMode;
 	}
 }
 
