@@ -1049,4 +1049,67 @@ public class PerifericoLocalDAO {
 		}
 		
 	}
+	
+	
+	
+	
+	/**
+	 * Borra un dispositivos y sus perifericos de la BD
+	 * 
+	 * @param dir
+	 *            direccion del dispositivo
+	 */
+	public void borrarPeriferico(int dir[]) {
+
+		Connection con = null;
+		PreparedStatement pstm = null;
+		String sql = "";
+		sql += "DELETE  From  dispositivos  WHERE   dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+		con = IConnection.getConnection();
+		try {
+			pstm = con.prepareStatement(sql);
+
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, dir[6]);
+			pstm.setInt(8, dir[7]);
+			pstm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+		
+		sql = "DELETE  From  perifericos  WHERE   dir1=? AND dir2=? AND dir3=? AND dir4=? AND dir5=? AND dir6=? AND dir7=? AND dir8=?";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+
+			pstm.setInt(1, dir[0]);
+			pstm.setInt(2, dir[1]);
+			pstm.setInt(3, dir[2]);
+			pstm.setInt(4, dir[3]);
+			pstm.setInt(5, dir[4]);
+			pstm.setInt(6, dir[5]);
+			pstm.setInt(7, dir[6]);
+			pstm.setInt(8, dir[7]);
+			pstm.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+
+	}
+	
+	
+	
+	
+	
 }

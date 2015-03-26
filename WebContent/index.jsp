@@ -136,6 +136,21 @@
 									<%
 										int dir[] = dispositivoLocalDTO[i].getDir();
 									%>
+									<input type="hidden" name="accion" value="borrar"> <input
+										type="hidden" name="dir1" value="<%=dir[0]%>"> <input
+										type="hidden" name="dir2" value="<%=dir[1]%>"> <input
+										type="hidden" name="dir3" value="<%=dir[2]%>"> <input
+										type="hidden" name="dir4" value="<%=dir[3]%>"> <input
+										type="hidden" name="dir5" value="<%=dir[4]%>"> <input
+										type="hidden" name="dir6" value="<%=dir[5]%>"> <input
+										type="hidden" name="dir7" value="<%=dir[6]%>"> <input
+										type="hidden" name="dir8" value="<%=dir[7]%>">
+										
+											<button alingt type="submit" class="btn btn-danger" align="right" >Eliminar Dispositivo</button>
+								</form>	
+								<br>
+							<form role="form" METHOD=POST action="logica">
+									
 									<input type="hidden" name="accion" value="nombre"> <input
 										type="hidden" name="dir1" value="<%=dir[0]%>"> <input
 										type="hidden" name="dir2" value="<%=dir[1]%>"> <input
@@ -149,8 +164,9 @@
 											name="nuevoNombre"
 											class="form-control"
 											value="<%=dispositivoLocalDTO[i].getNombre()%>" >
-											<button type="submit" class="btn btn-default" >Cambiar</button>
-										
+											<br>
+											<button type="submit" class="btn btn-warning" >Cambiar nombre</button>
+								</form>		
 							
 							<%}else{ %>
 								<%=dispositivoLocalDTO[i].getNombre()%>

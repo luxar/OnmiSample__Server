@@ -97,6 +97,22 @@ public class Logica extends HttpServlet {
 			String site = "index.jsp";
 			response.setStatus(response.SC_MOVED_TEMPORARILY);
 			response.setHeader("Location", site);
+		}else if (accion.equals("borrar")){
+			int dir[] = { Integer.parseInt(request.getParameter("dir1")),
+					Integer.parseInt(request.getParameter("dir2")),
+					Integer.parseInt(request.getParameter("dir3")),
+					Integer.parseInt(request.getParameter("dir4")),
+					Integer.parseInt(request.getParameter("dir5")),
+					Integer.parseInt(request.getParameter("dir6")),
+					Integer.parseInt(request.getParameter("dir7")),
+					Integer.parseInt(request.getParameter("dir8")) };
+			
+			
+			fc.borrarPeriferico(dir);
+			fc.setAdminMode(false);
+			String site = "index.jsp";
+			response.setStatus(response.SC_MOVED_TEMPORARILY);
+			response.setHeader("Location", site);
 		}
 
 	}

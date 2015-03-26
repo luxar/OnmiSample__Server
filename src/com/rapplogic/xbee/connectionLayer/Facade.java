@@ -240,4 +240,17 @@ public class Facade {
 		PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
 		perifericoLocalDAO.cambiarNombre(nombre, dir);
 	}
+	
+	/**
+	 * Borra un dispositivos y sus perifericos de la BD
+	 * 
+	 * @param dir
+	 *            direccion del dispositivo
+	 */
+	public void borrarPeriferico(int dir[]) {
+		PerifericoLocalDAO perifericoLocalDAO = new PerifericoLocalDAO();
+		perifericoLocalDAO.borrarPeriferico(dir);
+		
+	}
+	
 }
