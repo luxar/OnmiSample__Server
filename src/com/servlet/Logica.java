@@ -10,12 +10,12 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
-import com.rapplogic.xbee.connectionLayer.Facade;
-import com.rapplogic.xbee.connectionLayer.DTO.PerifericoLocalDTO;
+import com.connectionLayer.Facade;
+import com.connectionLayer.DTO.PerifericoLocalDTO;
 
 /**
- * Servelet que se encarga de la logica de negocio. La operaciones sobre la base
- * de datos las hace sobre facade.
+ * Clase que se encarga de recibir las particiones HTTP y servir nuevas páginas al usuario, sirve como interfaz para el usuario.
+ *
  * 
  * @author Lucas Alvarez Argüero
  *
@@ -54,7 +54,10 @@ public class Logica extends HttpServlet {
 					Integer.parseInt(request.getParameter("dir6")),
 					Integer.parseInt(request.getParameter("dir7")),
 					Integer.parseInt(request.getParameter("dir8")) };
+			//TODO revisar
 			fc.perifericosPorDirecion(dir);
+			
+			
 			PerifericoLocalDTO[] perifericoLocalDTO = (PerifericoLocalDTO[]) fc
 					.perifericosPorDirecionEscribibles(dir).toArray(
 							new PerifericoLocalDTO[0]);
